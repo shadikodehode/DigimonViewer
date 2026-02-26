@@ -2,31 +2,27 @@
     background-color: #FFFDDB;
 }
 .header{
-    padding: 50px;
-    padding-inline: 100px;
     display: flex;
-    flex-flow: row wrap;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.headerContainer{
+    align-self: center;
 }
 .logo{
     font-family: 'inter', sans-serif;
-    color: #FFA265;
     align-self: flex-start;
+    color: #FFA265;
     font-size: 64px;
     font-weight: bold;
-    width: 80%;
-    height: auto;
     filter: drop-shadow(3px 4px 2px #cfa78c);
 }
 .searchbar{
     background-color: #FFA2A2;
-    align-self: flex-end;
+    align-self: center;
     width: 500px;
-    height: 30px;
+    height: 50px;
     border-radius: 50px;
-    box-shadow: inset 2px 2px 2px 2px #c97171;
+    box-shadow: inset 2px 2px 5px 1px #c97171;
 }

@@ -1,0 +1,37 @@
+.header-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.header-logo{
+}
+.logo{
+    color: #FFA265;
+    font-size: 64px;
+    font-weight: 700;
+    filter: drop-shadow( 1px 1px 1px rgba(0, 0, 0, .3));
+    letter-spacing: -3px;
+}
+.header-searchbar{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    margin-left: 50px; 
+    max-width: 700px;
+}
+.searchbar{
+    background-color: #FFA2A2;
+    width: 500px;
+    height: 40px;
+    padding-left: 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-emphasis-color: red;
+    border: none;
+    box-shadow: inset 2px 2px 5px 1px rgb(201, 113, 113);
+}

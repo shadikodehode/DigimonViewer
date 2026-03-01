@@ -1,0 +1,78 @@
+.card-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.card{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.card-appearance{
+  background: rgb(155, 158, 179);
+  height: 200px;
+  width: 150px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #ffffff;
+  
+  border-radius: 8px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, .2);
+}
+.card-appearance:hover{
+  opacity: .85;
+}
+.card-appearance:active{
+  transform: scale(98%);
+}
+.card-image{
+  height: 120px;
+  padding: 60px 0px 20px 0%;
+}
+.card-name{
+  position: absolute;
+
+  font-size: 10px;
+
+  top: 0;
+  left: 0;
+
+  padding: 15px 20px;
+}
+.card-level-rookie, .card-level-ultimate, .card-level-mega, .card-level-training1, .card-level-training2, .card-level-champion{
+  position: absolute;
+
+  border-radius: 3px;
+
+  font-size: 7px;
+
+  top: 0;
+  left: 0;
+
+  margin: 33px 20px;
+  padding: 2px 4px;
+}
+
+.card-level-rookie{
+  background: rgb(234, 123, 89);
+}
+.card-level-ultimate{
+  background: rgb(255, 95, 95);
+}
+.card-level-mega{
+  background: rgb(160, 84, 231);
+}
+.card-level-training1{
+  background: rgb(115, 166, 238);
+}
+.card-level-training2{
+  background: rgb(72, 143, 243);
+}
+.card-level-champion{
+  background: rgb(235, 93, 248);
+}

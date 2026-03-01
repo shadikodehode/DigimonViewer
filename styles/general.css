@@ -1,4 +1,8 @@
 body{
-	font-family: 'inter', sans-serif;
+	font-family: "Silkscreen", sans-serif;
+	font-size: 9px;
+	font-weight: 600;
+	color: #fff5a6;
+	
 	background-color: #e3e0d5;
 }

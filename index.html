@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Digimon Viewer</title>
+	<link rel="icon" href="https://digi-api.com/favicon.png"> <!--tab icon-->
+	<title>Digimon Viewer</title> <!--tab title-->
 	<link rel="stylesheet" href="styles/general.css">
 	<link rel="stylesheet" href="styles/header.css">
 	<link rel="stylesheet" href="styles/card.css">
@@ -12,7 +13,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jersey+10&family=Pixelify+Sans:wght@400..700&family=Silkscreen:wght@400;700&family=Tiny5&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="header-container"> <!--Header Start-->
+
+<!--styling-->
+<div> 
+	<!--header-->
+	<div class="header-container"> 
 		<div class="header">
 			<div class="header-logo">
 				<!-- <div class="logo">Digimons
@@ -72,13 +77,16 @@
 			</div>
 			</div>          
 		</div>
-	</div> <!--Header End-->
+		<!--/header--> 
 
-	<div class="card-container">
-		<div class="card">
+<!--card-->
+<div class="card-main">
+	<div class="card-container
+	js-card-container"> 
+		<!-- <div class="card">
 			<div class="card-appearance">
 				<img class="card-image" src="cards/Agumon.png" alt="">
-				<div class="card-name">Augumon</div>
+				<div class="card-name">Agumon</div>
 				<div class="card-level-rookie">Rookie</div>
 			</div>
 		</div>
@@ -117,10 +125,25 @@
 				<div class="card-level card-level-champion">
 					<div>Champion</div>
 				</div>
-				
 			</div>
-		</div>
-		
-	</div>
+		</div> -->
+	</div> 
+</div>
+	<!--/card-->
+</div>
+<!--/styling-->
+
+<!--script header-->
+<script src="scripts/header.js">
+
+</script>
+<!--/script header-->
+
+<!--script card-->
+<script src="scripts/card.js">
+
+</script>
+<!--/script card-->
+
 </body>
 </html>

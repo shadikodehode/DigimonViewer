@@ -21,10 +21,17 @@
 //   }
 // });
 
-fetch('https://digi-api.com/api/v1/digimon/5')
-  .then(res => res.json())
-  .then(data => console.log(data))
+// fetch('https://digi-api.com/api/v1/digimon/5')
+//   .then(res => res.json())
+//   .then(data => console.log(data))
 
+const xhr = new XMLHttpRequest();
+
+xhr.addEventListener('load', () => {
+  xhr.response
+});
+
+xhr.open('GET', 'https://digi-api.com/api/v1/digimon/')
 
 // const cards = [{
 //   id: '',

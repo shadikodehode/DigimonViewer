@@ -1,5 +1,18 @@
 //OOP into Class, this is probably overkill...
 
+function fetchDigimon(id) {
+  let matchingDigimon;
+
+  digimons.forEach((digimon) => {
+    if (digimon.id === id) {
+      matchingDigimon = digimon;
+    }
+  });
+
+  return matchingDigimon;
+
+}
+
 class Digimon {
   id;
   name;
@@ -69,13 +82,18 @@ class Digimon {
 let digimons = [];
 
 function getDigimons() {
-  const xhr = new XMLHttpRequest()
+  const xhr = new XMLHttpRequest();
   
   xhr.addEventListener('load', () => {
-    console.log(xhr.response);
+   digimons = JSON.parse(xhr.response).map((digimonDetails) => {
+      return new Digimon(digimonDetails);
+    });
+    
+    console.log(digimons)
+  
   });
   
-  xhr.open('GET', 'https://digi-api.com/api/v1/digimon')
+  xhr.open('GET', 'https://digi-api.com/api/v1/digimon');
   xhr.send();
 }
 getDigimons();

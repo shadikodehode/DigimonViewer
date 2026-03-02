@@ -78,3 +78,25 @@
 .card-level-champion{
   background: rgb(243, 108, 255);
 }
+
+.modal-container{
+  display: none;
+  position:fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, .3);
+}
+
+.modal-content{
+  display: flex;
+  background: #5d6688;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 500px;
+  height: 400px;
+  border-radius: 8px;
+}

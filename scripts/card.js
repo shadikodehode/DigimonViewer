@@ -1,18 +1,3 @@
-//OOP into Class, this is probably overkill...
-
-// function fetchDigimon(id) {
-//   let matchingDigimon;
-
-//   digimons.forEach((digimon) => {
-//     if (digimon.id === id) {
-//       matchingDigimon = digimon;
-//     }
-//   });
-
-//   return matchingDigimon;
-
-// }
-
 class Digimon {
   id;
   name;
@@ -36,71 +21,24 @@ class Digimon {
     this.release = digimonDetails.release;
     this.type = digimonDetails.type;
   }
+  display(){
+      return `${this.id, this.name}`
+  }
 }
-//   //params: id,  name, leave blank  to get list of
 
-//   getIdUrl() {
-//     return `https://digi-api.com/api/v1/digimon/${this.id}`;
-//   }
+async function getDigimon() {
+  try{
+    const response = await fetch("https://digi-api.com/api/v1/digimon")
+    const data = await response.json();
 
-//   getNameUrl() {
-//     return `https://digi-api.com/api/v1/digimon/${this.name}`;
-//   }
-
-//   getDigimonUrl() {
-//     return `https://digi-api.com/api/v1/digimon/${this.digimon}`; //params: name, exact, attribute, level, page, pageSize, leaveblank to get list of digimons
-//   }
-
-//   getImageUrl() {
-//     return `https://digi-api.com/api/v1/digimon/${this.image}`;
-//   }
-
-//   getLevelUrl() {
-//     return `https://digi-api.com/api/v1/level/${this.level}`;
-//   }
-
-//   getAttributeUrl() {
-//     return `https://digi-api.com/api/v1/attribute/${this.attribute}`;
-//   }
-
-//   getFieldUrl() {
-//     return `https://digi-api.com/api/v1/field/${this.field}`;
-//   }
-
-//   getSkillUrl() {
-//     return `https://digi-api.com/api/v1/skill/${this.skill}`;
-//   }
-
-//   getReleaseUrl() {
-//     return `https://digi-api.com/api/v1/digimon/${this.release}`;
-//   }
-
-//   getTypeUrl() {
-//     return `https://digi-api.com/api/v1/type/${this.type}`;
-//   }
-// }
-
-
-
-// let digimons = [];
-
-// function getDigimons() {
-//   const xhr = new XMLHttpRequest();
-  
-//   xhr.addEventListener('load', () => {
-//    digimons = JSON.parse(xhr.response).map((digimonDetails) => {
-//       return new Digimon(digimonDetails);
-//     });
-    
-//     console.log(digimons)
-  
-//   });
-  
-//   xhr.open('GET', 'https://digi-api.com/api/v1/digimon');
-//   xhr.send();
-// }
-// getDigimons();
-
+    for(let i = 0; i < data.length; i++){
+      console.log(i)
+    }
+  }  catch (error){
+    console.error('Error fetching data', error);
+  }
+};
+getDigimon();
 // async function fetchData() {
 //   try{
 //     const response = await fetch("https://digi-api.com/api/v1/digimon")
@@ -108,10 +46,12 @@ class Digimon {
 //       throw new Error("Could not fetch")
 //     }
     
-//     const data = await response.json().map(() => {
+//     const data = await response.json()
+//     data.content.map((digimonDetails) => {
 //       return new Digimon(digimonDetails);
 //     });
 //     console.log(data);
+//     data;
 
 //   }
 //   catch(error){
@@ -119,24 +59,20 @@ class Digimon {
 //   }};
 //   fetchData();
 
-// const digimon = [/*data goes here*/].map((digimonDetails) => {
-//   return new Card(digimonDetails)
-// });
-function getDigimon(){
+// async function getDigimonId(){
+//   Digimon.forEach((id, index) => {
+//     console.log(`Index: ${index}, id: ${id}`)
+//   });
+// }
+// getDigimonId();
 
-fetch('https://digi-api.com/api/v1/digimon')
-  .then(response => {
+// function getDigimonId(){
+//   for(let digimon of data){
+//     console.log(digimon)
+//   }
+// }
+// getDigimonId();
 
-    if(!response.ok){
-      throw new Error("Could not fetch");
-    }
-    return response.json();
-  })
-  .then(data => console.log(data))
-  .then(error => console.error(error))
-
-}
-getDigimon();
 
 let cardHTML = '';
 
@@ -146,10 +82,8 @@ generateCard();
 
 function generateCard(){
     cards.forEach((card) => { 
-
       cardHTML += `
         <div class="card 
-        card-modal-popup
         js-card
         "
         data-card-id="${card.id}">
@@ -172,61 +106,33 @@ function generateCard(){
 });
 }
 
-
 document.querySelector('.js-card-container')
   .innerHTML = cardHTML;
 
-document.querySelector('.js-modal-container')
-  .innerHTML = modalHTML;
+  document.querySelector('.js-modal-container')
+    .innerHTML = modalHTML;
+  
+const modalClicked = document.getElementById('.js-card');
+const modal = document.getElementById('.js-modal')
 
-// digimonClicked()
-//   function digimonClicked() {
-//   document.querySelectorAll('.js-card')
-//     .forEach((card) => {
-//         card.addEventListener('click', () => {
-//           console.log(card.dataset.cardId);
-//           const digimonId= card.dataset.cardId
-//           digimonId
-//         })
-//     })
-//   }
-
-    
-let modal = document.querySelector('.js-modal-container')
-
-let modalPopup = document.querySelector('.card-modal-popup')
-
-let cardPopper = document.querySelector('.modal-content')
-
-modalCard();
-
-function modalCard(){
-  cards.forEach(() => {
-    modalPopup.onclick = function(){
-        this.style.display = "flex",
-          this.modalHTML += `
-            <div class="modal-content">
-              test
+function digimonClicked() {
+  document.querySelectorAll('.js-card')
+  .forEach((card) => {
+      card.addEventListener('click', () => {
+        modalClicked.addEventListener('click', () => {
+          modal.style.display = "flex";
+        })
+        modalHTML += `
+          <div id="js-modal">
+            <div>
+            test
             </div>
-          `;
-    }
-      window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-      }
+          </div>
+        `;
+        console.log(card.dataset.cardId);
+      })
   })
- 
 }
+digimonClicked()
 
-modalsHTML();
 
-function modalsHTML(){
-  modalPopup.onclick(() => {
-    modalHTML += `
-      <div class="modal-content">
-        test
-      </div>
-    `;
-  });
-}

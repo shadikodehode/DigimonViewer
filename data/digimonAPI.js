@@ -1,3 +1,26 @@
+const digimonAPI = 'https://digi-api.com/api/v1';
+
+//Get Fact
+
+const getDigimon = async () => {
+  const response = await fetch(`${digimonAPI}/digimon`)
+
+  const data = await response.json();
+  console.log(data);
+}
+  
+//Get Facts
+
+//button - fact, facts
+
+const factButton = document.createElement('button');
+factButton.textContent = 'get fact';
+factButton.addEventListener('click', async () => {
+  await getDigimon()
+})
+document.body.append(factButton);
+
+
 // fetchData();
 
 // async function fetchData() {

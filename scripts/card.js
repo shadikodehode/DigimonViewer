@@ -1,17 +1,6 @@
-//OOP into Class, this is probably overkill...
+let cardHTML = '';
 
-// function fetchDigimon(id) {
-//   let matchingDigimon;
-
-//   digimons.forEach((digimon) => {
-//     if (digimon.id === id) {
-//       matchingDigimon = digimon;
-//     }
-//   });
-
-//   return matchingDigimon;
-
-// }
+let modalHTML = '';
 
 class Digimon {
   id;
@@ -80,25 +69,6 @@ class Digimon {
 //   }
 // }
 
-
-
-// let digimons = [];
-
-// function getDigimons() {
-//   const xhr = new XMLHttpRequest();
-  
-//   xhr.addEventListener('load', () => {
-//    digimons = JSON.parse(xhr.response).map((digimonDetails) => {
-//       return new Digimon(digimonDetails);
-//     });
-    
-//     console.log(digimons)
-  
-//   });
-  
-//   xhr.open('GET', 'https://digi-api.com/api/v1/digimon');
-//   xhr.send();
-// }
 // getDigimons();
 
 // async function fetchData() {
@@ -122,34 +92,13 @@ class Digimon {
 // const digimon = [/*data goes here*/].map((digimonDetails) => {
 //   return new Card(digimonDetails)
 // });
-function getDigimon(){
-
-fetch('https://digi-api.com/api/v1/digimon')
-  .then(response => {
-
-    if(!response.ok){
-      throw new Error("Could not fetch");
-    }
-    return response.json();
-  })
-  .then(data => console.log(data))
-  .then(error => console.error(error))
-
-}
-getDigimon();
-
-let cardHTML = '';
-
-let modalHTML = '';
 
 generateCard();
-
 function generateCard(){
     cards.forEach((card) => { 
 
       cardHTML += `
         <div class="card 
-        card-modal-popup
         js-card
         "
         data-card-id="${card.id}">
@@ -169,9 +118,47 @@ function generateCard(){
           </div> 
         </div>
       `;
-});
-}
+      // modalCard(card);
+})
+};
 
+digimonClicked()
+  function digimonClicked() {
+  document.querySelectorAll('.js-card')
+    .forEach((card) => {
+        card.addEventListener('click', () => {
+          console.log(card.dataset.cardId);
+        })
+    });
+  };
+
+// function modalCard(){
+//     modal.onClick(() => {
+//         modal.style.display = "flex",
+//           this.innerHTML += `
+//             <div class="modal-content">
+//               test
+//             </div>
+//           `;
+//     },
+//       window.onclick = function(event) {
+//         if (event.target == modal) {
+//             modal.style.display = "none";
+//         }
+//       })
+//   }
+
+// modalsHTML();
+
+// function modalsHTML(){
+//   modalPopup.onclick(() => {
+//     modalHTML += `
+//       <div class="modal-content">
+//         test
+//       </div>
+//     `;
+//   });
+// }
 
 document.querySelector('.js-card-container')
   .innerHTML = cardHTML;
@@ -179,54 +166,6 @@ document.querySelector('.js-card-container')
 document.querySelector('.js-modal-container')
   .innerHTML = modalHTML;
 
-// digimonClicked()
-//   function digimonClicked() {
-//   document.querySelectorAll('.js-card')
-//     .forEach((card) => {
-//         card.addEventListener('click', () => {
-//           console.log(card.dataset.cardId);
-//           const digimonId= card.dataset.cardId
-//           digimonId
-//         })
-//     })
-//   }
-
-    
 let modal = document.querySelector('.js-modal-container')
 
-let modalPopup = document.querySelector('.card-modal-popup')
-
-let cardPopper = document.querySelector('.modal-content')
-
-modalCard();
-
-function modalCard(){
-  cards.forEach(() => {
-    modalPopup.onclick = function(){
-        this.style.display = "flex",
-          this.modalHTML += `
-            <div class="modal-content">
-              test
-            </div>
-          `;
-    }
-      window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-      }
-  })
- 
-}
-
-modalsHTML();
-
-function modalsHTML(){
-  modalPopup.onclick(() => {
-    modalHTML += `
-      <div class="modal-content">
-        test
-      </div>
-    `;
-  });
-}
+let cardPopper = document.querySelector('.js-modal-content')

@@ -14,7 +14,7 @@ const getDigimon = async () => {
 //button - fact, facts
 
 const factButton = document.createElement('button');
-factButton.textContent = 'get fact';
+factButton.textContent = 'get Digimon(api test)';
 factButton.addEventListener('click', async () => {
   await getDigimon()
 })
@@ -23,50 +23,11 @@ document.body.append(factButton);
 
 // fetchData();
 
-// async function fetchData() {
-//   try{
-//     const response = await fetch("https://digi-api.com/api/v1/digimon")
-//     if(!response.ok){
-//       throw new Error("Could not fetch")
-//     }
-    
-//     const data = await response.json();
-//     console.log(data);
-
-//   }
-//   catch(error){
-//     console.error(error);
-//   }};
-
 // document.addEventListener('scroll', (event) => {
 //   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000){
 //     fetchData();
 //   }
 // });
-
-// fetch('https://digi-api.com/api/v1/digimon/5')
-//   .then(res => res.json())
-//   .then(data => console.log(data))
-
-// const xhr = new XMLHttpRequest();
-
-// xhr.addEventListener('load', () => {
-//   xhr.response
-// });
-
-// xhr.open('GET', 'https://digi-api.com/api/v1/digimon/')
-
-// const cards = [{
-//   id: '',
-//   name: '',
-//   image: '',
-//   level: '',
-//   attribute: '',
-//   field: '',
-//   skills: '',
-//   release: '',
-//   type: ''
-// }]
 
 const cards = [{
   id: '1f1',

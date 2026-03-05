@@ -96,7 +96,6 @@ class Digimon {
 generateCard();
 function generateCard(){
     cards.forEach((card) => { 
-
       cardHTML += `
         <div class="card 
         js-card
@@ -118,7 +117,6 @@ function generateCard(){
           </div> 
         </div>
       `;
-      // modalCard(card);
 })
 };
 

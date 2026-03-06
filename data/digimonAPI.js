@@ -5,18 +5,36 @@ let digimonCollection = [];
 
 const cardContainer = document.querySelector('.card-container')
 
-const createCard = () => {
-  const cardElement = document.createElement('div');
-    cardElement.className = "card";
-  
-    cardContainer.appendChild(cardElement);
 
-  const cardAppearance = document.createElement('div');
-    cardAppearance.className = "card-appearance";
+export const createCard = (digimonName, digimonLevel, digimonImage) => {
+ const cardElement = document.createElement('div');
+  cardElement.className = "card";
 
-    cardElement.appendChild(cardAppearance);
+  cardContainer.appendChild(cardElement);
+
+const cardAppearance = document.createElement('div');
+  cardAppearance.className = "card-appearance";
+
+  cardElement.appendChild(cardAppearance);
+
+const cardName = document.createElement('div')
+  cardName.textContent = digimonName;
+  cardName.className = "card-name";
+
+  cardAppearance.appendChild(cardName)
+
+const cardLevel = document.createElement('div')
+  cardLevel.textContent = digimonLevel;
+  cardLevel.className = "card-level-rookie";
+
+  cardAppearance.appendChild(cardLevel)
+
+const cardImage = document.createElement('img')
+  cardImage.src = digimonImage;
+  cardImage.className = "card-image";
+
+  cardAppearance.appendChild(cardImage)
 }
-createCard();
 
 // const fetchDigimon = async () => {
 //   const response = await fetch(`${digimonApi}/digimon`)
@@ -84,34 +102,3 @@ createCard();
 //   }
 // });
 
-const cards = [{
-  id: '1f1',
-  image: 'cards/Baboongamon.png',
-  name: 'Baboongamon',
-  level: 'ultimate'
-}, {
-  id: '1f2',
-  image: 'cards/Agumon.png',
-  name: 'Agumon',
-  level: 'rookie'
-}, {
-  id: '1f3',
-  image: 'cards/Dracomon (X-Antibody).png',
-  name: 'Dracomon',
-  level: 'champion'
-}, {
-  id: '2f1',
-  image: 'cards/Shoeshoemon.png',
-  name: 'Shoeshoemon',
-  level: 'training1'
-}, {
-  id: '2f2',
-  image: 'cards/Sistermon Ciel.png',
-  name: 'Sistermon',
-  level: 'training2'
-}, {
-  id: '2f3',
-  image: 'cards/Starmon.png',
-  name: 'Starmon',
-  level: 'mega'
-}];

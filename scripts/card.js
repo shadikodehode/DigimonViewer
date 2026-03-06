@@ -1,31 +1,31 @@
-let cardHTML = '';
+// let cardHTML = '';
 
-let modalHTML = '';
+// let modalHTML = '';
 
-class Digimon {
-  id;
-  name;
-  digimon;
-  image;
-  level;
-  attribute;
-  field;
-  skills;
-  release;
-  type;
+// class Digimon {
+//   id;
+//   name;
+//   digimon;
+//   image;
+//   level;
+//   attribute;
+//   field;
+//   skills;
+//   release;
+//   type;
 
-  constructor(digimonDetails) {
-    this.id = digimonDetails.id;
-    this.name = digimonDetails.name;
-    this.image = digimonDetails.image;
-    this.level = digimonDetails.level;
-    this.attribute = digimonDetails.attribute;
-    this.field = digimonDetails.field;
-    this.skill = digimonDetails.skill;
-    this.release = digimonDetails.release;
-    this.type = digimonDetails.type;
-  }
-}
+//   constructor(digimonDetails) {
+//     this.id = digimonDetails.id;
+//     this.name = digimonDetails.name;
+//     this.image = digimonDetails.image;
+//     this.level = digimonDetails.level;
+//     this.attribute = digimonDetails.attribute;
+//     this.field = digimonDetails.field;
+//     this.skill = digimonDetails.skill;
+//     this.release = digimonDetails.release;
+//     this.type = digimonDetails.type;
+//   }
+// }
 //   //params: id,  name, leave blank  to get list of
 
 //   getIdUrl() {
@@ -69,66 +69,43 @@ class Digimon {
 //   }
 // }
 
-// getDigimons();
 
-// async function fetchData() {
-//   try{
-//     const response = await fetch("https://digi-api.com/api/v1/digimon")
-//     if(!response.ok){
-//       throw new Error("Could not fetch")
-//     }
-    
-//     const data = await response.json().map(() => {
-//       return new Digimon(digimonDetails);
+// generateCard();
+// function generateCard(){
+//     cards.forEach((card) => { 
+//       cardHTML += `
+//         <div class="card 
+//         js-card
+//         "
+//         data-card-id="${card.id}">
+//           <div class="card-appearance">
+
+//             <img class="card-image" 
+//             src="${card.image}">
+
+//             <div class="card-name">
+//             ${card.name}
+//             </div>
+
+//             <div class="card-level-${card.level}">
+//             ${card.level}
+
+//             </div>
+//           </div> 
+//         </div>
+//       `;
+// })
+// };
+
+// digimonClicked()
+//   function digimonClicked() {
+//   document.querySelectorAll('.js-card')
+//     .forEach((card) => {
+//         card.addEventListener('click', () => {
+//           console.log(card.dataset.cardId);
+//         })
 //     });
-//     console.log(data);
-
-//   }
-//   catch(error){
-//     console.error(error);
-//   }};
-//   fetchData();
-
-// const digimon = [/*data goes here*/].map((digimonDetails) => {
-//   return new Card(digimonDetails)
-// });
-
-generateCard();
-function generateCard(){
-    cards.forEach((card) => { 
-      cardHTML += `
-        <div class="card 
-        js-card
-        "
-        data-card-id="${card.id}">
-          <div class="card-appearance">
-
-            <img class="card-image" 
-            src="${card.image}">
-
-            <div class="card-name">
-            ${card.name}
-            </div>
-
-            <div class="card-level-${card.level}">
-            ${card.level}
-
-            </div>
-          </div> 
-        </div>
-      `;
-})
-};
-
-digimonClicked()
-  function digimonClicked() {
-  document.querySelectorAll('.js-card')
-    .forEach((card) => {
-        card.addEventListener('click', () => {
-          console.log(card.dataset.cardId);
-        })
-    });
-  };
+//   };
 
 // function modalCard(){
 //     modal.onClick(() => {
@@ -158,12 +135,12 @@ digimonClicked()
 //   });
 // }
 
-document.querySelector('.js-card-container')
-  .innerHTML = cardHTML;
+// document.querySelector('.js-card-container')
+//   .innerHTML = cardHTML;
 
-document.querySelector('.js-modal-container')
-  .innerHTML = modalHTML;
+// document.querySelector('.js-modal-container')
+//   .innerHTML = modalHTML;
 
-let modal = document.querySelector('.js-modal-container')
+// let modal = document.querySelector('.js-modal-container')
 
-let cardPopper = document.querySelector('.js-modal-content')
+// let cardPopper = document.querySelector('.js-modal-content')

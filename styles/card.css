@@ -11,7 +11,7 @@
   position: relative;
 }
 .card-appearance{
-  background: #94a0ca;
+  background: #ffffff;
   height: 200px;
   width: 150px;
   
@@ -19,7 +19,8 @@
   justify-content: center;
   align-items: center;
 
-  color: #ffffff;
+  color: #ffab23;
+  text-shadow: 1px 1px 1ca rgb(79, 79, 79);
   
   border-radius: 8px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, .1);
@@ -35,6 +36,7 @@
 .card-image{
   height: 120px;
   padding: 60px 0px 20px 0%;
+  mix-blend-mode: multiply;
 }
 .card-name{
   position: absolute;

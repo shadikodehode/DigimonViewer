@@ -22,6 +22,7 @@
 
   color: #ffab23;
   text-wrap: wrap;
+  white-space: normal;
   
   border-radius: 8px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, .1);
@@ -36,8 +37,10 @@
 }
 .card-image{
   height: 120px;
+  max-width: 150px;
   padding: 60px 0px 20px 0%;
   mix-blend-mode: multiply;
+  object-fit: cover;
 }
 .card-name{
   position: absolute;

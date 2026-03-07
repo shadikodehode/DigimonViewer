@@ -2,7 +2,9 @@ import { createCard } from "../scripts/card.js";
 
 const digimonApi = 'https://digi-api.com/api/v1';
 
-let digimonArr = [];
+export let digimonArr = [];
+
+export let digimonNameArr = [];
 
 let isLoading = false;
 
@@ -35,6 +37,16 @@ export const getDigimon = async () => {
   digimonArr.forEach(digimon => {
       createCard(digimon.name, digimon.image)
   })
+}
+
+const fetchAllDigimon = async () => {
+  const response = await fetch(`${digimonApi}/digimon?pageSize=1488`)
+  return await response.json();
+}
+
+export const fetchDigimonNames = async () => {
+  const nameData = await fetchAllDigimon();
+  digimonNameArr = data.content.map(digimon => digimon.name);
 }
 
 const LoadNextPage = async () => {  

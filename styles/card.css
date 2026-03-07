@@ -3,7 +3,8 @@
   justify-content: center;
   margin-top: 40px;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 30px;
+  margin: 40px 250px;
 }
 .card{
   display: flex;
@@ -20,7 +21,7 @@
   align-items: center;
 
   color: #ffab23;
-  text-shadow: 1px 1px 1ca rgb(79, 79, 79);
+  text-wrap: wrap;
   
   border-radius: 8px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, .1);

@@ -1,3 +1,10 @@
-import { getDigimon } from "../data/digimonAPI.js";
+import { getDigimon, fetchAllDigimon } from "../data/digimonAPI.js";
+import { searchDigimonAutocomplete } from "../scripts/search.js";
 
-getDigimon();
+const init = async () => {
+  await getDigimon();
+  await fetchAllDigimon();
+  searchDigimonAutocomplete();
+}
+
+init();

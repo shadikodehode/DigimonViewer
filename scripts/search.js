@@ -1,24 +1,52 @@
-import { digimonArr, digimonNameArr } from "../data/digimonAPI.js";
+import { allDigimonArr } from "../data/digimonAPI.js";
 import { createCard } from "../scripts/card.js";
 
 let debounce;
 
 const searchbarElement = document.querySelector('.searchbar');
 const cardContainer = document.querySelector('.card-container');
+const digimonSearchList = document.querySelector('#digimon-names')
 
 export const searchDigimon = (event) => {
   clearTimeout(debounce);
   debounce = setTimeout(() => {
     
-  }, 300)
-  const digimonSearchName = event.target.value.trim();
-  const filteredDigimon = digimonNameArr.filter(digimon => digimon.name.toLowerCase().includes(digimonSearchName.toLowerCase()))
+    const digimonSearchName = event.target.value.trim();
+     if(digimonSearchName.length === 0) {
+      digimonSearchList.innerHTML = '';
+      return;
+    }
 
-  cardContainer.innerHTML = '';
+    const filteredDigimon = allDigimonArr
+      .filter(digimon => digimon.name
+      .toLowerCase()
+      .startsWith(digimonSearchName
+      .toLowerCase()
+  ))
 
-  filteredDigimon.forEach(digimon => {
-    createCard(digimon.name, digimon.image)
+    cardContainer.innerHTML = '';
+    digimonSearchList.innerHTML = '';
+
+    filteredDigimon.forEach(digimon => {
+      createCard(digimon.name, digimon.image)
+    })
+
+    filteredDigimon.slice(0, 10).forEach(digimon => {
+
+      const searchAutocomplete = document.createElement('option');
+      searchAutocomplete.value = digimon.name;
+      digimonSearchList.appendChild(searchAutocomplete);
   })
+
+  }, 300)
 }
 
 searchbarElement.addEventListener('input', searchDigimon)
+
+export const searchDigimonAutocomplete = () =>  {
+  allDigimonArr.forEach(digimon => {
+    const searchAutocomplete = document.createElement('option');
+    searchAutocomplete.value = digimon.name;
+    digimonSearchList.appendChild(searchAutocomplete);
+  })
+}

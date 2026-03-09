@@ -4,7 +4,7 @@ const digimonApi = 'https://digi-api.com/api/v1';
 
 export let digimonArr = [];
 
-export let digimonNameArr = [];
+export let allDigimonArr = [];
 
 let isLoading = false;
 
@@ -39,14 +39,13 @@ export const getDigimon = async () => {
   })
 }
 
-const fetchAllDigimon = async () => {
+export const fetchAllDigimon = async () => {
   const response = await fetch(`${digimonApi}/digimon?pageSize=1488`)
-  return await response.json();
-}
-
-export const fetchDigimonNames = async () => {
-  const nameData = await fetchAllDigimon();
-  digimonNameArr = data.content.map(digimon => digimon.name);
+  const data = await response.json();
+  allDigimonArr = data.content.map(digimon => ({
+    name: digimon.name, image: digimon.image
+  })
+);
 }
 
 const LoadNextPage = async () => {  

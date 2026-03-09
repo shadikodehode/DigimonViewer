@@ -9,7 +9,7 @@ const cardContainer = document.querySelector('.card-container');
 export const searchDigimon = (event) => {
   clearTimeout(debounce);
   debounce = setTimeout(() => {
-
+    
   }, 300)
   const digimonSearchName = event.target.value.trim();
   const filteredDigimon = digimonNameArr.filter(digimon => digimon.name.toLowerCase().includes(digimonSearchName.toLowerCase()))

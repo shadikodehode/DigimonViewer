@@ -1,4 +1,5 @@
-import { createCard } from "../scripts/card.js";
+import { renderCard } from "../scripts/renderCard.js";
+import { skipDigimon } from "../scripts/skipDigimon.js";
 
 const digimonApi = 'https://digi-api.com/api/v1';
 
@@ -19,12 +20,18 @@ const fetchDigimon = async () => {
   return await response.json();
 }
 
+export const fetchDigimonFilter = async (filter)=> {
+  const response = await fetch(`${digimonApi}/${filter}`)
+  return await response.json();
+}
+
 const fetchDigimonData = async (data) => {
   for (const digimonList of data.content) {
-   digimonArr.push({
-    id: digimonList.id,
-    name: digimonList.name,
-    image: digimonList.image
+    if(skipDigimon.has(digimonList.name)) continue;
+    digimonArr.push({
+      id: digimonList.id,
+      name: digimonList.name,
+      image: digimonList.image
    })
   }
   totalPages = data.pageable?.totalPages;
@@ -34,15 +41,15 @@ const fetchDigimonData = async (data) => {
 export const getDigimon = async () => {
   const data = await fetchDigimon();
   await fetchDigimonData(data);
-  digimonArr.forEach(digimon => {
-      createCard(digimon.name, digimon.image)
-  })
+  renderCard(digimonArr)
 }
 
 export const fetchAllDigimon = async () => {
   const response = await fetch(`${digimonApi}/digimon?pageSize=1488`)
   const data = await response.json();
-  allDigimonArr = data.content.map(digimon => ({
+  allDigimonArr = data.content
+  .filter(digimon => !skipDigimon.has(digimon.name))
+  .map(digimon => ({
     name: digimon.name, image: digimon.image
   })
 );
@@ -56,11 +63,9 @@ const LoadNextPage = async () => {
   const data = await response.json();
   const startLoad = digimonArr.length;
   await fetchDigimonData(data);
-  digimonArr.slice(startLoad).forEach(digimon => {
-    createCard(digimon.name, digimon.image)
-  })
+  renderCard(digimonArr.slice(startLoad), false)
   isLoading = false;
-    }
+}
 
  document.addEventListener('scroll', () => {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200){

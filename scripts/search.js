@@ -1,5 +1,5 @@
-import { allDigimonArr } from "../data/digimonAPI.js";
-import { createCard } from "../scripts/card.js";
+import { digimonArr, allDigimonArr } from "../data/digimonAPI.js";
+import { renderCard } from "./renderCard.js";
 
 let debounce;
 
@@ -14,6 +14,7 @@ export const searchDigimon = (event) => {
     const digimonSearchName = event.target.value.trim();
      if(digimonSearchName.length === 0) {
       digimonSearchList.innerHTML = '';
+      renderCard(digimonArr)
       return;
     }
 
@@ -27,9 +28,7 @@ export const searchDigimon = (event) => {
     cardContainer.innerHTML = '';
     digimonSearchList.innerHTML = '';
 
-    filteredDigimon.forEach(digimon => {
-      createCard(digimon.name, digimon.image)
-    })
+    renderCard(filteredDigimon)
 
     filteredDigimon.slice(0, 10).forEach(digimon => {
 

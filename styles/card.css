@@ -36,7 +36,7 @@
   transform: scale(99%);
 }
 .card-image{
-  height: 120px;
+  height: 110px;
   max-width: 150px;
   padding: 60px 0px 20px 0%;
   mix-blend-mode: multiply;
@@ -46,6 +46,7 @@
   position: absolute;
 
   font-size: 10px;
+  word-break: break-word;
 
   top: 0;
   left: 0;

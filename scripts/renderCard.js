@@ -1,8 +1,6 @@
-
 const cardContainer = document.querySelector('.card-container')
 
-
-export const createCard = (digimonName, digimonImage) => {
+const createCard = (digimonName, digimonImage) => {
  const cardElement = document.createElement('div');
   cardElement.className = "card";
 
@@ -24,4 +22,11 @@ const cardImage = document.createElement('img')
   cardImage.className = "card-image";
 
   cardAppearance.appendChild(cardImage)
+}
+
+export const renderCard = (array, clear = true) => {
+ if(clear) cardContainer.innerHTML = ''; 
+ array.forEach(digimon => {
+  createCard(digimon.name, digimon.image)
+ });
 }

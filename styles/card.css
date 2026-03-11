@@ -53,38 +53,6 @@
 
   padding: 15px 20px;
 }
-.card-level-rookie, .card-level-ultimate, .card-level-mega, .card-level-training1, .card-level-training2, .card-level-champion{
-  position: absolute;
-
-  border-radius: 3px;
-
-  font-size: 7px;
-
-  top: 0;
-  left: 0;
-
-  margin: 33px 20px;
-  padding: 2px 4px;
-}
-
-.card-level-rookie{
-  background: rgb(120, 108, 255);
-}
-.card-level-ultimate{
-  background: rgb(246, 112, 145);
-}
-.card-level-mega{
-  background: rgb(179, 114, 241);
-}
-.card-level-training1{
-  background: rgb(115, 166, 238);
-}
-.card-level-training2{
-  background: rgb(72, 143, 243);
-}
-.card-level-champion{
-  background: rgb(243, 108, 255);
-}
 
 .modal-container{
   display: none;

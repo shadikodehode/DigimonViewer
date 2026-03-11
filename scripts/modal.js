@@ -51,7 +51,8 @@ export const modal = async (id) => {
     modalCard.appendChild(modalAttribute)
 
   const modalImage = document.createElement('img')
-    modalImage.src = data.images[0]?.href ?? 'Unknown'
+    modalImage.src = data.images[0]?.href
+    modalImage.className = 'modal-image'
 
     modalCard.appendChild(modalImage)
   

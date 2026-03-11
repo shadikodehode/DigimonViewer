@@ -15,12 +15,11 @@
   position: fixed;
  
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
-  height: 600px;
-  width: 900px;
+  height: 500px;
+  width: 750px;
 
   color: #ffab23;
 
@@ -31,7 +30,7 @@
 
 .modal-name {
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 5%;
 
   font-size: 16px;
@@ -66,9 +65,8 @@
 }
 
 .modal-image {
-  position: absolute;
   top: 50%;
-  right: 50%;
+  left: 50%;
 }
 
 .modal-attribute-header {
@@ -84,7 +82,9 @@
 }
 
 .modal-description {
-  
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 /* .card-level-rookie{

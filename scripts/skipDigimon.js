@@ -31,4 +31,15 @@ export const skipDigimon = new Set([
   "Xros Up Astamon (Cerberumon)",
   "Xros Up Opossummon (Candmon)",
   "Xros Up Arresterdramon (Astamon)",
+  "Jiko Tyumon",
+  "Cardmon C1",
+  "Cardmon C2",
+  "Cardmon R1",
+  "Cardmon S1",
+  "Cardmon S2",
+  "Cardmon U1",
+  "Cardmon U2",
+  "Gallantmon Chaos Mode",
+  "Lykamon",
+
 ])

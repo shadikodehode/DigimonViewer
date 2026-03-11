@@ -1,9 +1,17 @@
+import { modal } from "./modal.js";
+
 const cardContainer = document.querySelector('.card-container')
 
-const createCard = (digimonName, digimonImage) => {
- const cardElement = document.createElement('div');
+const createCard = (digimonId, digimonName, digimonImage) => {
+  const cardElement = document.createElement('div');
   cardElement.className = "card";
 
+  cardElement.addEventListener('click', () => {
+    console.log(digimonId)
+    console.log(digimonName)
+    modal(digimonId)
+  })
+  
   cardContainer.appendChild(cardElement);
 
 const cardAppearance = document.createElement('div');
@@ -27,6 +35,6 @@ const cardImage = document.createElement('img')
 export const renderCard = (array, clear = true) => {
  if(clear) cardContainer.innerHTML = ''; 
  array.forEach(digimon => {
-  createCard(digimon.name, digimon.image)
+  createCard(digimon.id, digimon.name, digimon.image)
  });
 }

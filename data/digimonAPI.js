@@ -50,7 +50,9 @@ export const fetchAllDigimon = async () => {
   allDigimonArr = data.content
   .filter(digimon => !skipDigimon.has(digimon.name))
   .map(digimon => ({
-    name: digimon.name, image: digimon.image
+    id: digimon.id,
+    name: digimon.name, 
+    image: digimon.image
   })
 );
 }

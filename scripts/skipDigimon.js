@@ -41,5 +41,7 @@ export const skipDigimon = new Set([
   "Cardmon U2",
   "Gallantmon Chaos Mode",
   "Lykamon",
-
+  "Bun",
+  "Blikmon",
+  "Kohagurumon",
 ])

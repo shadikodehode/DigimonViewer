@@ -12,96 +12,178 @@
 }
 
 .modal-card {
-  position: fixed;
+  position: relative;
+  margin: auto;
  
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 
-  height: 500px;
-  width: 750px;
+  height: 450px;
+  width: 650px;
 
+  font-family: 'inter', sans-serif;
   color: #ffab23;
 
   border-radius: 15px;
 
-  background: rgb(255, 255, 255);
-}
-
-.modal-name {
-  position: absolute;
-  top: 15%;
-  left: 5%;
-
-  font-size: 16px;
+  background: #ffffff;
 }
 
 .modal-exit-btn {
-    position: absolute;
-    top: 1%;
-    right: 1%;
+  position: absolute;
+  top: 5px;
+  right: 10px;
 
-    font-size: 20px;
+  font-size: 20px;
+  font-family: "Silkscreen", sans-serif;
+  color: #f38a8a;
 
-    color: rgb(255, 85, 85);
-
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.modal-level-header {
-
+.modal-exit-btn:hover {
+  color: #ef4747;
 }
 
-.modal-level {
+.modal-name-container {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+
+  margin-left: 40px;
+  margin-top: 50px;
+
+  font-size: 20px;
+
+  gap: 2px;
+}
+
+.modal-name-id {
+  color: #a9b9d9;
+
+  font-size: 10px;
   
+  margin-left: 5px;
+}
+
+.modal-content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-type-container {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
 }
 
 .modal-type-header {
-
+  display: flex;
+  font-size: 8px;
 }
 
 .modal-type {
-  
+  display: flex;
+
+  background: #70b1f6;
+  width: fit-content;
+  border-radius: 2px;
+
+  color: #ffffff;
+  font-size: 9px;
+  text-align: center;
+  padding: 5px;
 }
 
 .modal-image {
-  top: 50%;
-  left: 50%;
+  display: flex;
+
+  height: 250px;
 }
 
-.modal-attribute-header {
+.modal-filter-container {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
 
+  gap: 10px;
 }
 
-.modal-attribute {
-  
+.modal-level-container, .modal-attribute-container {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.modal-level-header, .modal-attribute-header{
+  display: flex;
+  font-size: 8px;
+}
+
+.modal-level, .modal-attribute {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f67091;
+  color: #ffffff;
+  font-size: 8px;
+  text-align: center;
+
+  border-radius: 4px;
+  height: 20px;
+  width: 40px;
+}
+
+.modal-field-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+/* .modal-field-header {
+  display: flex;
+} */
+
+.modal-field {
+  display: flex;
+  height: 30px;
+
+  border-radius: 5px;
+}
+
+.modal-field-img-container {
+  display: flex;
+
+  gap: 20px;
+}
+
+/* .modal-description-container {
+  bottom: 0;
+  right: 0;
+
+  word-break: break-word;
+  max-width: 200px;
+
+  margin-top: 90px;
+  margin-left: -100px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .modal-description-header {
-
+  font-size: 10px;
 }
 
 .modal-description {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-/* .card-level-rookie{
-  background: rgb(120, 108, 255);
-}
-.card-level-ultimate{
-  background: rgb(246, 112, 145);
-}
-.card-level-mega{
-  background: rgb(179, 114, 241);
-}
-.card-level-training1{
-  background: rgb(115, 166, 238);
-}
-.card-level-training2{
-  background: rgb(72, 143, 243);
-}
-.card-level-champion{
-  background: rgb(243, 108, 255);
+  font-size: 7.5px;
 } */

@@ -84,7 +84,7 @@
 }
 
 .button-reset {
-	background: #b20f03;
+	background: #c3180c;
 }
 
 .button-level, .button-attribute {
@@ -98,7 +98,7 @@
 }
 
 .button-reset:hover {
-	background: #9a0c02;
+	background: #b1190e;
 	color: #ffe229;
 }
 

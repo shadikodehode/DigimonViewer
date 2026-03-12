@@ -48,48 +48,71 @@ export const modal = async (id) => {
   document.addEventListener('keydown', exitKey)
 
 
-  //Name
-
-  const modalNameContainer = document.createElement('div')
-    modalNameContainer.className = 'modal-name-container'
-
-  const modalNameID = document.createElement('div')
-    modalNameID.textContent = `#${String(data.id).padStart(4, '0')}`
-    modalNameID.className = 'modal-name-id'
-
-  const modalName = document.createElement('div')
-    modalName.textContent = data.name
-    modalName.className = 'modal-name'
-
-  modalNameContainer.appendChild(modalNameID)
-  modalNameContainer.appendChild(modalName)
-
-  modalCard.appendChild(modalNameContainer)
-
-  //container for type, image and filters
+  //container for name, image and filter
 
   const modalContentContainer = document.createElement('div')
     modalContentContainer.className = 'modal-content-container'
 
   modalCard.appendChild(modalContentContainer)
 
+
+  //Container for name, id and type
+
+  const modalHeaderContainer = document.createElement('div')
+    modalHeaderContainer.className = 'modal-header-container'
+
+  modalContentContainer.appendChild(modalHeaderContainer)
+
+
+  //Container for id and type
+
+  const modalIdTypeContainer = document.createElement('div')
+    modalIdTypeContainer.className = 'modal-id-type-container'
+
+  modalHeaderContainer.appendChild(modalIdTypeContainer)
+
+
+  //Id
+
+  const modalIdContainer = document.createElement('div')
+    modalIdContainer.className= 'modal-id-container'
+  
+  modalIdTypeContainer.appendChild(modalIdContainer) 
+
+  const modalNameId = document.createElement('div')
+    modalNameId.textContent = `#${String(data.id).padStart(4, '0')}`
+    modalNameId.className = 'modal-name-id'
+  
+  modalIdContainer.appendChild(modalNameId)
+  
+
   //Type
 
   const modalTypeContainer = document.createElement('div')
-    modalTypeContainer.className= 'modal-type-container'
+    modalTypeContainer.className = 'modal-type-container'
 
-  const modalTypeHeader = document.createElement('div')
-    modalTypeHeader.textContent = "Type"
-    modalTypeHeader.className = 'modal-type-header'
+  modalIdTypeContainer.appendChild(modalTypeContainer)
 
   const modalType = document.createElement('div')
     modalType.textContent =  data.types[0]?.type 
     modalType.className = 'modal-type' 
 
-  modalTypeContainer .appendChild(modalTypeHeader)
   modalTypeContainer.appendChild(modalType)
 
-  modalContentContainer.appendChild(modalTypeContainer)
+
+  //name
+
+  const modalNameContainer = document.createElement('div')
+    modalNameContainer.className = 'modal-name-container'
+
+  modalHeaderContainer.appendChild(modalNameContainer)
+
+  const modalName = document.createElement('div')
+    modalName.textContent = data.name
+    modalName.className = 'modal-name'
+
+  
+  modalNameContainer.appendChild(modalName)
 
 
   //Image
@@ -115,7 +138,7 @@ export const modal = async (id) => {
     modalLevelContainer.className = 'modal-level-container'
   
   const modalLevelHeader = document.createElement('div')
-    modalLevelHeader.textContent = "Level:"
+    modalLevelHeader.textContent = "LEVEL"
     modalLevelHeader.className = 'modal-level-header'
 
    modalLevelContainer.appendChild(modalLevelHeader)
@@ -137,7 +160,7 @@ export const modal = async (id) => {
     modalAttributeContainer.className = 'modal-attribute-container'
 
   const modalAttributeHeader = document.createElement('div')
-    modalAttributeHeader.textContent = "Attribute:"
+    modalAttributeHeader.textContent = "ATTRIBUTE"
     modalAttributeHeader.className = 'modal-attribute-header'
   
   const modalAttribute = document.createElement('div')
@@ -155,11 +178,18 @@ export const modal = async (id) => {
   const modalFieldContainer = document.createElement('div')
     modalFieldContainer.className = 'modal-field-container'
     
-  // const modalFieldHeader = document.createElement('div')
-  //   modalFieldHeader.textContent = "Fields:"
-  //   modalFieldHeader.className = 'modal-field-header'
+  modalCard.appendChild(modalFieldContainer)
 
-  // modalFieldContainer.appendChild(modalFieldHeader)
+  const modalFieldHeader = document.createElement('div')
+    modalFieldHeader.textContent = "FIELDS"
+    modalFieldHeader.className = 'modal-field-header'
+
+  modalFieldContainer.appendChild(modalFieldHeader)
+
+  const modalFieldLine = document.createElement('div')
+    modalFieldLine.className = 'modal-field-line'
+
+  modalFieldHeader.appendChild(modalFieldLine)
 
   const modalFieldImgContainer = document.createElement('div')
     modalFieldImgContainer.className = 'modal-field-img-container'
@@ -175,7 +205,6 @@ export const modal = async (id) => {
     modalFieldImgContainer.appendChild(modalField)
   })
 
-  modalCard.appendChild(modalFieldContainer)  
 
 //  //Description
 

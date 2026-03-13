@@ -111,6 +111,7 @@
 
 .modal-image-container {
   display: flex;
+  margin-right: -50px;
   flex: 1;
 }
 

@@ -44,4 +44,6 @@ export const skipDigimon = new Set([
   "Bun",
   "Blikmon",
   "Kohagurumon",
+  "Greymon (Skull Knightmon)",
+
 ])

@@ -148,8 +148,12 @@ export const modal = async (id) => {
 
   modalContentContainer.appendChild(modalRightContainer)
 
+  const modalRightSubContainer = document.createElement('div')
+    modalRightSubContainer.className = 'modal-right-sub-container'
 
-    //Bio button
+  modalRightContainer.appendChild(modalRightSubContainer)
+
+  //Bio button
 
   const modalBioButton = document.createElement('div')
     modalBioButton.textContent = "Bio"

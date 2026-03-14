@@ -2,12 +2,9 @@ import { fetchDigimonFilter } from "../data/digimonAPI.js";
 import { modalCreateNameContent } from "./modalElements/modalNameContent.js";
 import { modalCreateMainContent } from "./modalElements/modalMainContent.js";
 import { modalCreateBottomContent } from "./modalElements/modalBottomContent.js";
-import { modalEvolutionPopup } from "./modalElements/modalEvolutionPopup.js";
 
 export const modal = async (id) => {
   const data = await fetchDigimonFilter(`digimon/${id}`)
-
-  let isPopupOpen = false
   
   const darkenBackground = document.createElement('div')
     darkenBackground.className = 'darken-bg'
@@ -47,44 +44,8 @@ export const modal = async (id) => {
   const mainContent = modalCreateMainContent(data)
   modalCard.appendChild(mainContent)
   
-  const { modalBottomContentContainer, modalPreviousEvolutionButton, modalNextEvolutionButton} = modalCreateBottomContent(data)
-  modalCard.appendChild(modalBottomContentContainer)
-
-  
-  modalPreviousEvolutionButton.addEventListener('click', () => {
-    if(isPopupOpen) return
-    isPopupOpen = true
-    const evolutionPopup = modalEvolutionPopup(data.priorEvolutions, darkenBackground, 'prior')
-    modalCard.appendChild(evolutionPopup)
-
-    setTimeout(() => {
-      modalCard.addEventListener('click', (event) => {
-        if(!evolutionPopup.contains(event.target)) {
-        modalCard.removeChild(evolutionPopup)
-        isPopupOpen = false
-        }
-      })      
-    }, 0);
-  })
-
-  modalNextEvolutionButton.addEventListener('click', () => {
-    if(isPopupOpen) return
-    isPopupOpen = true
-    const evolutionPopup = modalEvolutionPopup(data.nextEvolutions, darkenBackground, 'next')
-    modalCard.appendChild(evolutionPopup)
-
-    setTimeout(() => {
-      modalCard.addEventListener('click', (event) => {
-        if(!evolutionPopup.contains(event.target)) {
-        modalCard.removeChild(evolutionPopup)
-        isPopupOpen = false
-        }
-      })      
-    }, 0);
-      
-  })
-
-  
+  const modalBottomContentContainer = modalCreateBottomContent(data)
+  modalCard.appendChild(modalBottomContentContainer)  
 
 //  //Description
 
@@ -104,6 +65,5 @@ export const modal = async (id) => {
 //   modalDescriptionContainer.appendChild(modalDescription)
 
 //   modalCard.appendChild(modalDescriptionContainer) 
-
 
 }

@@ -30,6 +30,40 @@ export const modalCreateBottomContent = (data) => {
   
   modalPreviousEvolutionContainer.appendChild(modalPreviousEvolutionTriangle)
 
+  //Prior List
+  const modalPreviousEvolutionListContainer = document.createElement('div')
+    modalPreviousEvolutionListContainer.className = 'modal-previous-evolution-list-container'
+
+  modalPreviousEvolutionContainer.appendChild(modalPreviousEvolutionListContainer)
+
+  const modalPreviousEvolutionList = document.createElement('div')
+    modalPreviousEvolutionList.className = 'modal-previous-evolution-list'
+
+  modalPreviousEvolutionListContainer.appendChild(modalPreviousEvolutionList)
+
+  data.priorEvolutions.forEach(evolution => {
+    const evolutionList = document.createElement('div')
+    evolutionList.className = 'modal-previous-evolution-list-content'
+
+    const evolutionName = document.createElement('div')
+    evolutionName.textContent = evolution.digimon
+    evolutionName.className = 'modal-previous-evolution-list-name'
+
+    evolutionList.appendChild(evolutionName)
+
+    const evolutionImage = document.createElement('img')
+    evolutionImage.src = evolution.image
+    evolutionImage.className = 'modal-previous-evolution-list-image'
+
+    evolutionList.appendChild(evolutionImage)
+    
+    modalPreviousEvolutionList.appendChild(evolutionList)
+  })
+
+  modalPreviousEvolutionButton.addEventListener('click', () => {
+    modalPreviousEvolutionListContainer.classList.toggle('expanded')
+  })
+
   //Field
   const modalFieldContainer = document.createElement('div')
     modalFieldContainer.className = 'modal-field-container'
@@ -91,5 +125,5 @@ export const modalCreateBottomContent = (data) => {
   
   modalNextEvolutionContainer.appendChild(modalNextEvolutionTriangle)
 
-  return { modalBottomContentContainer, modalPreviousEvolutionButton, modalNextEvolutionButton}
+  return modalBottomContentContainer
 }

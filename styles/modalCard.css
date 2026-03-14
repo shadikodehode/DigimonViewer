@@ -328,7 +328,7 @@
   text-shadow: 1px 1px 2px rgba(69, 112, 148, 0.2);
 }
 
-.modal-level, .modal-attribute, .modal-field
+.modal-level, .modal-attribute, .modal-field,
 .modal-previous-evolution-button, .modal-next-evolution-button {
   box-shadow: 1px 1px 2px rgba(69, 112, 148, 0.2);
 }
@@ -358,59 +358,62 @@
   transform:translateX(.5px) translateY(.5px);
 }
 
-.modal-evolution-popup-container {
-  position: absolute;
+.modal-previous-evolution-list-container,
+.modal-previous-evolution-list-container,
+.modal-previous-evolution-list,
+.modal-previous-evolution-list-content,
+.modal-previous-evolution-list-name,
+.modal-previous-evolution-list-image {
+  cursor: default;
+  transition: none;
+  opacity: 1;
+}
 
-  background: #a9b9d9;
-  border-radius: 4px;
-  color: white;
+.modal-previous-evolution-list-container {
+  position: absolute;
+  display: none;
+}
+
+.modal-previous-evolution-list-container.expanded {
+  position: absolute;
+  display: flex;
+
+  margin-top: 150px;
+  margin-left: 410px;
+
+  border-radius: 12px;
 
   height: 100px;
-  width: 200px;
+  width: 580px;
+  background: white;
+  color: #a9b9d9;
+  justify-content: center;
 
-  bottom: 0;
-
-  margin-bottom: -95px;
-  padding: 20px;
-  
-  z-index: 20;
+  padding: 10px;
 }
 
-.prior-popup {
-  left: 0;
+.modal-previous-evolution-list{
+  display: flex;
+  overflow-y: auto;
+  align-items: center;
+  gap: 20px;
 }
 
-.next-popup {
-  right: 0;
-  margin-right: 41px;
-}
-
-.modal-evolution-popup-scrollable {
-display: flex;
-flex-direction: column;
-gap: 20px;
-}
-
-.modal-evolution-list-container {
+.modal-previous-evolution-list-content {
   display: flex;
   flex-direction: column;
-
-  gap: 5px;
 }
 
-.modal-evolution-list-image {
+.modal-previous-evolution-list-name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 50px;
+}
+
+.modal-previous-evolution-list-image {
   height: 50px;
-  width: 50px;
 }
-
-.modal-evolution-list-name {
-  font-size: 12px;
-}
-
-.modal-evolution-exit-btn {
-  color: blue;
-}
-
 
 /* .modal-description-container {
   bottom: 0;

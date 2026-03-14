@@ -2,7 +2,7 @@ import { fetchDigimonFilter } from "../data/digimonAPI.js";
 import { modalCreateNameContent } from "./modalElements/modalNameContent.js";
 import { modalCreateMainContent } from "./modalElements/modalMainContent.js";
 import { modalCreateBottomContent } from "./modalElements/modalBottomContent.js";
-
+import { modalEvolutionPopup } from "./modalElements/modalEvolutionPopup.js";
 
 export const modal = async (id) => {
   const data = await fetchDigimonFilter(`digimon/${id}`)
@@ -45,10 +45,18 @@ export const modal = async (id) => {
   const mainContent = modalCreateMainContent(data)
   modalCard.appendChild(mainContent)
   
-  const bottomContent = modalCreateBottomContent(data)
-  modalCard.appendChild(bottomContent)
+  const { modalBottomContentContainer, modalPreviousEvolutionButton, modalNextEvolutionButton} = modalCreateBottomContent(data)
+  modalCard.appendChild(modalBottomContentContainer)
 
+  modalPreviousEvolutionButton.addEventListener('click', () => {
+    const evolutionPopup = modalEvolutionPopup(data.priorEvolutions, darkenBackground, 'prior')
+    modalCard.appendChild(evolutionPopup)
+  })
 
+  modalNextEvolutionButton.addEventListener('click', () => {
+    const evolutionPopup = modalEvolutionPopup(data.nextEvolutions, darkenBackground, 'next')
+    modalCard.appendChild(evolutionPopup)
+  })
 
 //  //Description
 

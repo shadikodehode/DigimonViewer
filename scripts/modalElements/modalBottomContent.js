@@ -91,5 +91,5 @@ export const modalCreateBottomContent = (data) => {
   
   modalNextEvolutionContainer.appendChild(modalNextEvolutionTriangle)
 
-  return modalBottomContentContainer
+  return { modalBottomContentContainer, modalPreviousEvolutionButton, modalNextEvolutionButton}
 }

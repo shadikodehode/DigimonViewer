@@ -7,7 +7,6 @@ import { modalCreateBottomContent } from "./modalElements/modalBottomContent.js"
 export const modal = async (id) => {
   const data = await fetchDigimonFilter(`digimon/${id}`)
   
-  //Background Element
   const darkenBackground = document.createElement('div')
     darkenBackground.className = 'darken-bg'
 
@@ -18,13 +17,11 @@ export const modal = async (id) => {
 
   document.body.appendChild(darkenBackground)
 
-  //Card Element
   const modalCard = document.createElement('div')
     modalCard.className = 'modal-card'
 
   darkenBackground.appendChild(modalCard)
 
-  //Exit Button
   const exitButton = document.createElement('div')
     exitButton.addEventListener('click', () => {
       document.body.removeChild(darkenBackground)
@@ -34,7 +31,6 @@ export const modal = async (id) => {
     
   modalCard.appendChild(exitButton)
   
-  //Escape Key
   const exitKey = (event) => {
     if(event.key === 'Escape') {
       document.body.removeChild(darkenBackground)
@@ -43,21 +39,16 @@ export const modal = async (id) => {
   }
   document.addEventListener('keydown', exitKey)
   
-  //modalName Content
   const nameContent = modalCreateNameContent(data)
   modalCard.appendChild(nameContent)
 
-
-  //modalMain Content
   const mainContent = modalCreateMainContent(data)
   modalCard.appendChild(mainContent)
   
-
-  //modalBottom Content
   const bottomContent = modalCreateBottomContent(data)
   modalCard.appendChild(bottomContent)
 
-  
+
 
 //  //Description
 

@@ -30,7 +30,7 @@
   transition: opacity .1s;
 }
 .card-appearance:hover{
-  opacity: .85;
+  opacity: .80;
 }
 .card-appearance:active{
   transform: scale(99%);

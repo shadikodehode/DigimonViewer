@@ -1,11 +1,10 @@
 export const modalCreateBottomContent = (data) => {
-  //Content Bottom Container
 
+  //Content Bottom Container
   const modalBottomContentContainer = document.createElement('div')
     modalBottomContentContainer.className = 'modal-bottom-content-container'
 
   //Previous Evolution Button
-
   const modalPreviousEvolutionContainer = document.createElement('div')
     modalPreviousEvolutionContainer.className = 'modal-previous-evolution-container'
 
@@ -31,9 +30,7 @@ export const modalCreateBottomContent = (data) => {
   
   modalPreviousEvolutionContainer.appendChild(modalPreviousEvolutionTriangle)
 
-
   //Field
-
   const modalFieldContainer = document.createElement('div')
     modalFieldContainer.className = 'modal-field-container'
     
@@ -68,8 +65,7 @@ export const modalCreateBottomContent = (data) => {
     modalFieldImgContainer.appendChild(modalField)
   })
 
-  //Next Evolution Button
-  
+  //Next Evolution Button 
   const modalNextEvolutionContainer = document.createElement('div')
     modalNextEvolutionContainer.className = 'modal-next-evolution-container'
 

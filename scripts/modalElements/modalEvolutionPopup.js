@@ -19,18 +19,18 @@ export const modalEvolutionPopup = (evolutions, darkenBackground, direction) => 
       modalEvolutionListContainer.className = 'modal-evolution-list-container'
 
     modalEvolutionPopupScrollable.appendChild(modalEvolutionListContainer)
+
+    const modalEvolutionListName = document.createElement('div')
+      modalEvolutionListName.textContent = evolution.digimon
+      modalEvolutionListName.className = 'modal-evolution-list-name'
+
+    modalEvolutionListContainer.appendChild(modalEvolutionListName)    
       
     const modalEvolutionListImage = document.createElement('img')
       modalEvolutionListImage.src = evolution.image
       modalEvolutionListImage.className = 'modal-evolution-list-image'
 
     modalEvolutionListContainer.appendChild(modalEvolutionListImage)
-
-    const modalEvolutionListName = document.createElement('div')
-      modalEvolutionListName.textContent = evolution.digimon
-      modalEvolutionListName.className = 'modal-evolution-list-name'
-
-    modalEvolutionListContainer.appendChild(modalEvolutionListName)
   })
 
   return modalEvolutionPopupContainer

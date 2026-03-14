@@ -6,6 +6,8 @@ import { modalEvolutionPopup } from "./modalElements/modalEvolutionPopup.js";
 
 export const modal = async (id) => {
   const data = await fetchDigimonFilter(`digimon/${id}`)
+
+  let isPopupOpen = false
   
   const darkenBackground = document.createElement('div')
     darkenBackground.className = 'darken-bg'
@@ -48,15 +50,41 @@ export const modal = async (id) => {
   const { modalBottomContentContainer, modalPreviousEvolutionButton, modalNextEvolutionButton} = modalCreateBottomContent(data)
   modalCard.appendChild(modalBottomContentContainer)
 
+  
   modalPreviousEvolutionButton.addEventListener('click', () => {
+    if(isPopupOpen) return
+    isPopupOpen = true
     const evolutionPopup = modalEvolutionPopup(data.priorEvolutions, darkenBackground, 'prior')
     modalCard.appendChild(evolutionPopup)
+
+    setTimeout(() => {
+      modalCard.addEventListener('click', (event) => {
+        if(!evolutionPopup.contains(event.target)) {
+        modalCard.removeChild(evolutionPopup)
+        isPopupOpen = false
+        }
+      })      
+    }, 0);
   })
 
   modalNextEvolutionButton.addEventListener('click', () => {
+    if(isPopupOpen) return
+    isPopupOpen = true
     const evolutionPopup = modalEvolutionPopup(data.nextEvolutions, darkenBackground, 'next')
     modalCard.appendChild(evolutionPopup)
+
+    setTimeout(() => {
+      modalCard.addEventListener('click', (event) => {
+        if(!evolutionPopup.contains(event.target)) {
+        modalCard.removeChild(evolutionPopup)
+        isPopupOpen = false
+        }
+      })      
+    }, 0);
+      
   })
+
+  
 
 //  //Description
 

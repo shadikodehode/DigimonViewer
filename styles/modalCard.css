@@ -357,6 +357,61 @@
 .modal-bio-triangle:active, .modal-bio-button:active {
   transform:translateX(.5px) translateY(.5px);
 }
+
+.modal-evolution-popup-container {
+  position: absolute;
+
+  background: #a9b9d9;
+  border-radius: 4px;
+  color: white;
+
+  height: 100px;
+  width: 200px;
+
+  bottom: 0;
+
+  margin-bottom: -95px;
+  padding: 20px;
+  
+  z-index: 20;
+}
+
+.prior-popup {
+  left: 0;
+}
+
+.next-popup {
+  right: 0;
+  margin-right: 41px;
+}
+
+.modal-evolution-popup-scrollable {
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+.modal-evolution-list-container {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.modal-evolution-list-image {
+  height: 50px;
+  width: 50px;
+}
+
+.modal-evolution-list-name {
+  font-size: 12px;
+}
+
+.modal-evolution-exit-btn {
+  color: blue;
+}
+
+
 /* .modal-description-container {
   bottom: 0;
   right: 0;

@@ -3,24 +3,33 @@ import { modalCreateNameContent } from "./modalElements/modalNameContent.js";
 import { modalCreateMainContent } from "./modalElements/modalMainContent.js";
 import { modalCreateBottomContent } from "./modalElements/modalBottomContent.js";
 
-export const modal = async (id) => {
+export const modal = async (id, currentBackground = null, currentCard = null) => {
   const data = await fetchDigimonFilter(`digimon/${id}`)
-  
-  const darkenBackground = document.createElement('div')
-    darkenBackground.className = 'darken-bg'
 
-    darkenBackground.addEventListener('click', (event) => {
+  console.log('modal called with:', id)
+  console.log('currentBackground:', currentBackground)
+  console.log('currentCard:', currentCard)
+  
+  const darkenBackground = currentBackground || document.createElement('div')
+    if(!currentBackground) {
+      darkenBackground.className = 'darken-bg'
+      document.body.appendChild(darkenBackground)
+    }
+
+
+  const modalCard = currentCard || document.createElement('div')
+  if(!currentCard) {
+    modalCard.className = 'modal-card'
+    darkenBackground.appendChild(modalCard)
+  } else {
+    modalCard.innerHTML = ''
+  }
+
+   darkenBackground.addEventListener('click', (event) => {
     if(!modalCard.contains(event.target)) {
       document.body.removeChild(darkenBackground)}
     })
-
-  document.body.appendChild(darkenBackground)
-
-  const modalCard = document.createElement('div')
-    modalCard.className = 'modal-card'
-
-  darkenBackground.appendChild(modalCard)
-
+  
   const exitButton = document.createElement('div')
     exitButton.addEventListener('click', () => {
       document.body.removeChild(darkenBackground)
@@ -44,7 +53,7 @@ export const modal = async (id) => {
   const mainContent = modalCreateMainContent(data)
   modalCard.appendChild(mainContent)
   
-  const modalBottomContentContainer = modalCreateBottomContent(data)
+  const modalBottomContentContainer = modalCreateBottomContent(data, darkenBackground, modalCard)
   modalCard.appendChild(modalBottomContentContainer)  
 
 //  //Description

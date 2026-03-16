@@ -1,4 +1,6 @@
-export const modalCreateBottomContent = (data) => {
+import { modal } from "../modal.js"
+
+export const modalCreateBottomContent = (data, darkenBackground, modalCard) => {
 
   //Content Bottom Container
   const modalBottomContentContainer = document.createElement('div')
@@ -45,6 +47,13 @@ export const modalCreateBottomContent = (data) => {
     const evolutionList = document.createElement('div')
     evolutionList.className = 'modal-previous-evolution-list-content'
 
+    evolutionList.addEventListener('click', () => {
+       console.log('evolution clicked, id:', evolution.id)
+  console.log('darkenBackground:', darkenBackground)
+  console.log('modalCard:', modalCard)
+      modal(evolution.id, darkenBackground, modalCard)
+    })
+
     const evolutionName = document.createElement('div')
     evolutionName.textContent = evolution.digimon
     evolutionName.className = 'modal-previous-evolution-list-name'
@@ -61,7 +70,16 @@ export const modalCreateBottomContent = (data) => {
   })
 
   modalPreviousEvolutionButton.addEventListener('click', () => {
+    event.stopPropagation()
     modalPreviousEvolutionListContainer.classList.toggle('expanded')
+    modalPreviousEvolutionTriangle.classList.toggle('expanded')
+
+    document.addEventListener('click', (event) => {
+      if(!modalPreviousEvolutionListContainer.contains(event.target)) {
+        modalPreviousEvolutionListContainer.classList.remove('expanded')
+        modalPreviousEvolutionTriangle.classList.remove('expanded')
+      }
+    })
   })
 
   //Field
@@ -124,6 +142,49 @@ export const modalCreateBottomContent = (data) => {
     modalNextEvolutionTriangle.className = 'modal-next-evolution-triangle'
   
   modalNextEvolutionContainer.appendChild(modalNextEvolutionTriangle)
+
+  //Next List
+  const modalNextEvolutionListContainer = document.createElement('div')
+    modalNextEvolutionListContainer.className = 'modal-next-evolution-list-container'
+
+  modalNextEvolutionContainer.appendChild(modalNextEvolutionListContainer)
+
+  const modalNextEvolutionList = document.createElement('div')
+    modalNextEvolutionList.className = 'modal-next-evolution-list'
+
+  modalNextEvolutionListContainer.appendChild(modalNextEvolutionList)
+
+  data.nextEvolutions.forEach(evolution => {
+    const evolutionList = document.createElement('div')
+    evolutionList.className = 'modal-next-evolution-list-content'
+
+    const evolutionName = document.createElement('div')
+    evolutionName.textContent = evolution.digimon
+    evolutionName.className = 'modal-next-evolution-list-name'
+
+    evolutionList.appendChild(evolutionName)
+
+    const evolutionImage = document.createElement('img')
+    evolutionImage.src = evolution.image
+    evolutionImage.className = 'modal-next-evolution-list-image'
+
+    evolutionList.appendChild(evolutionImage)
+    
+    modalNextEvolutionList.appendChild(evolutionList)
+  })
+
+  modalNextEvolutionButton.addEventListener('click', () => {
+    event.stopPropagation()
+    modalNextEvolutionListContainer.classList.toggle('expanded')
+    modalNextEvolutionTriangle.classList.toggle('expanded')
+
+    document.addEventListener('click', (event) => {
+      if(!modalNextEvolutionListContainer.contains(event.target)) {
+        modalNextEvolutionListContainer.classList.remove('expanded')
+        modalNextEvolutionTriangle.classList.remove('expanded')
+      }
+    })
+  })
 
   return modalBottomContentContainer
 }

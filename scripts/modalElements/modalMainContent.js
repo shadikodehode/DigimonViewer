@@ -48,6 +48,22 @@ export const modalCreateMainContent = (data) => {
 
     modalRightContainer.appendChild(modalBioButton)
 
+    const modalBioTextContainer = document.createElement('div')
+      modalBioTextContainer.className = 'modal-bio-text-container'
+
+    modalRightContainer.appendChild(modalBioTextContainer)
+
+    const modalBioText = document.createElement('div')
+    modalBioText.textContent = data.descriptions
+    .find(description => description.language === 'en_us')?.description
+    modalBioText.className = 'modal-bio-text'
+
+    modalBioButton.addEventListener('click', () => {
+      event.stopPropagation()
+    })
+
+    modalBioTextContainer.appendChild(modalBioText)
+
     //Triangle Bio Element
 
     const modalBioTriangle = document.createElement('div')

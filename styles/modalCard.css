@@ -110,11 +110,11 @@
 .modal-image-container {
   display: flex;
   flex: 2;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 
 .modal-image {
-  height: 220px;
+  height: 260px;
 }
 
 .modal-right-container {
@@ -438,6 +438,9 @@
   height: 50px;
 }
 
+.modal-bio-text-container {
+  display: none;
+}
 
 /* .modal-description-container {
   bottom: 0;

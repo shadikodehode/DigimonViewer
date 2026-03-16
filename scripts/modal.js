@@ -6,16 +6,11 @@ import { modalCreateBottomContent } from "./modalElements/modalBottomContent.js"
 export const modal = async (id, currentBackground = null, currentCard = null) => {
   const data = await fetchDigimonFilter(`digimon/${id}`)
 
-  console.log('modal called with:', id)
-  console.log('currentBackground:', currentBackground)
-  console.log('currentCard:', currentCard)
-  
   const darkenBackground = currentBackground || document.createElement('div')
     if(!currentBackground) {
       darkenBackground.className = 'darken-bg'
       document.body.appendChild(darkenBackground)
     }
-
 
   const modalCard = currentCard || document.createElement('div')
   if(!currentCard) {

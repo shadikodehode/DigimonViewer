@@ -48,9 +48,6 @@ export const modalCreateBottomContent = (data, darkenBackground, modalCard) => {
     evolutionList.className = 'modal-previous-evolution-list-content'
 
     evolutionList.addEventListener('click', () => {
-       console.log('evolution clicked, id:', evolution.id)
-  console.log('darkenBackground:', darkenBackground)
-  console.log('modalCard:', modalCard)
       modal(evolution.id, darkenBackground, modalCard)
     })
 
@@ -157,6 +154,10 @@ export const modalCreateBottomContent = (data, darkenBackground, modalCard) => {
   data.nextEvolutions.forEach(evolution => {
     const evolutionList = document.createElement('div')
     evolutionList.className = 'modal-next-evolution-list-content'
+
+    evolutionList.addEventListener('click', () => {
+      modal(evolution.id, darkenBackground, modalCard)
+    })
 
     const evolutionName = document.createElement('div')
     evolutionName.textContent = evolution.digimon

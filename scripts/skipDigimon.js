@@ -97,4 +97,7 @@ export const skipDigimon = new Set([
   "Shoutmon X7(Superior Mode)",
   "Bagramon (Archangel Form)",
   "Skull Knightmon (White)",
+  "Greymon (Skull Knightmon)",
+  "Neo Vamdemon Darkness Mode (Shoutmon)",
+  ""
 ])

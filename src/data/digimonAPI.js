@@ -20,6 +20,7 @@ const fetchDigimon = async () => {
   return await response.json();
 
   //error handling / try/catch 
+  //
 }
 
 export const fetchDigimonFilter = async (filter)=> {

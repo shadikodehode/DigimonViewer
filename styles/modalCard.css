@@ -99,7 +99,7 @@
 
 .modal-content-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
@@ -123,13 +123,8 @@
   align-items: flex-start;
 
   gap: 10px;
-  margin-top: -40px;
   margin-left: auto;
   margin-right: 30px;
-}
-
-.modal-right-sub-container {
-  display: flex;
 }
 
 .modal-bio-button {
@@ -151,6 +146,41 @@
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
   border-left: 6px solid #f67091;
+}
+
+.modal-bio-text-container {
+  display: none;
+}
+
+.modal-right-sub-container.expanded {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-bio-text-container.expanded {
+  display: flex;
+  margin-left: 20px;
+  width: 200px;
+  font-size: 10px;
+  align-self: flex-start;
+}
+
+.modal-filter-container.expanded {
+  display: none;
+}
+
+.modal-bio-button.expanded {
+  align-self: flex-end;
+  transform: translateX(-12px);
+}
+
+.modal-bio-triangle.expanded {
+transform: translateX(-40px) rotate(180deg);
+}
+
+.modal-right-container.expanded {
+  align-items: flex-end;
 }
 
 .modal-right-content-container {
@@ -355,7 +385,7 @@
 
 .modal-level:active, .modal-attribute:active,
 .modal-field:active, .modal-type-container:active,
-.modal-bio-triangle:active, .modal-bio-button:active {
+.modal-bio-triangle:active {
   transform: translateX(.5px) translateY(.5px);
 }
 
@@ -437,30 +467,3 @@
 .modal-next-evolution-list-image {
   height: 50px;
 }
-
-.modal-bio-text-container {
-  display: none;
-}
-
-/* .modal-description-container {
-  bottom: 0;
-  right: 0;
-
-  word-break: break-word;
-  max-width: 200px;
-
-  margin-top: 90px;
-  margin-left: -100px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.modal-description-header {
-  font-size: 10px;
-}
-
-.modal-description {
-  font-size: 7.5px;
-} */

@@ -16,8 +16,10 @@ let totalPages = 0;
 const pageSize = 40;
 
 const fetchDigimon = async () => {
-  const response = await fetch(`${digimonApi}/digimon?pageSize=${pageSize}`)
+  const response = await fetch(`${digimonApi}/digimon?pageSize=${pageSize}`);
   return await response.json();
+
+  //error handling / try/catch 
 }
 
 export const fetchDigimonFilter = async (filter)=> {

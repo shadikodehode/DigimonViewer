@@ -50,24 +50,4 @@ export const modal = async (id, currentBackground = null, currentCard = null) =>
   
   const modalBottomContentContainer = modalCreateBottomContent(data, darkenBackground, modalCard)
   modalCard.appendChild(modalBottomContentContainer)  
-
-//  //Description
-
-//   const modalDescriptionContainer = document.createElement('div')
-//     modalDescriptionContainer.className = 'modal-description-container'
-
-//   const modalDescriptionHeader = document.createElement('div')
-//     modalDescriptionHeader.textContent = "Bio"
-//     modalDescriptionHeader.className = 'modal-description-header'
-
-//   const modalDescription = document.createElement('div')
-//     modalDescription.textContent = data.descriptions
-//     .find(d => d.language === 'en_us')?.description
-//     modalDescription.className = 'modal-description'
-
-//   modalDescriptionContainer.appendChild(modalDescriptionHeader)
-//   modalDescriptionContainer.appendChild(modalDescription)
-
-//   modalCard.appendChild(modalDescriptionContainer) 
-
 }

@@ -49,7 +49,7 @@ export const modalCreateNameContent = (data) => {
     modalNameContainer.appendChild(modalName)
 
     const cleanName = createTags(data.name, modalIdTypeContainer)
-    modalName.textContent = cleanName
+      modalName.textContent = cleanName
 
     return modalHeaderContainer
 }

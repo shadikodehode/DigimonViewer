@@ -62,7 +62,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1px;
+  gap: 2px;
 }
 
 .modal-id-container {
@@ -80,11 +80,11 @@
   align-items: center;
   height: 13px;
   border-radius: 1px;
-  gap: 5px;
   color: #ffffff;
   font-size: 9px;
   text-align: center;
   padding: 0px 3px 0px 3px;
+  box-shadow: 1px 1px 2px rgba(69, 112, 148, 0.1);
 }
 
 .tag-type {
@@ -96,11 +96,11 @@
 }
 
 .tag-virus {
-  background: #a7da63;
+  background: #55c544;
 }
 
 .tag-black {
-  background: #6e7783;
+  background: #627982;
 }
 
 .tag-generic {
@@ -179,15 +179,15 @@
 .modal-bio-text-container.expanded {
   display: flex;
   width: 250px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
-  color: #a9b9d9;
+  color: #ffa20e;
   align-self: flex-start;
 
-  max-height: 200px;
+  max-height: 220px;
   overflow-y: auto;
-  
-  text-shadow: 1px 1px 2px rgba(69, 112, 148, 0.2);
+
+  text-shadow: 1px 1px 1px rgba(106, 231, 240, 0.4);
 }
 
 .modal-bio-text {
@@ -263,6 +263,7 @@ transform: translateX(-40px) rotate(180deg);
   
   color: #98c3ed;
   font-size: 12px;
+  cursor: default;
 }
 
 .modal-level, .modal-attribute {

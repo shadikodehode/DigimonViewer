@@ -1,4 +1,5 @@
 import { modal } from "./modal.js";
+import { createTags } from "./utils.js";
 
 const cardContainer = document.querySelector('.card-container')
 
@@ -20,10 +21,14 @@ const cardAppearance = document.createElement('div');
   cardElement.appendChild(cardAppearance);
 
 const cardName = document.createElement('div')
-  cardName.textContent = digimonName;
   cardName.className = "card-name";
 
   cardAppearance.appendChild(cardName)
+
+const cardTrash = document.createElement('div')
+
+const cleanName = createTags(digimonName, cardTrash)
+  cardName.textContent = cleanName
 
 const cardImage = document.createElement('img')
   cardImage.src = digimonImage;

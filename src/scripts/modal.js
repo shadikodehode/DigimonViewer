@@ -13,12 +13,13 @@ export const modal = async (id, currentBackground = null, currentCard = null) =>
     }
 
   const modalCard = currentCard || document.createElement('div')
-  if(!currentCard) {
-    modalCard.className = 'modal-card'
-    darkenBackground.appendChild(modalCard)
-  } else {
-    modalCard.innerHTML = ''
-  }
+    if(!currentCard) {
+      modalCard.className = 'modal-card'
+      darkenBackground.appendChild(modalCard)
+    } 
+    else {
+      modalCard.innerHTML = ''
+    }
 
    darkenBackground.addEventListener('click', (event) => {
     if(!modalCard.contains(event.target)) {
@@ -29,6 +30,7 @@ export const modal = async (id, currentBackground = null, currentCard = null) =>
     exitButton.addEventListener('click', () => {
       document.body.removeChild(darkenBackground)
     })
+
     exitButton.textContent = 'X'
     exitButton.className = 'modal-exit-btn'
     
@@ -38,8 +40,8 @@ export const modal = async (id, currentBackground = null, currentCard = null) =>
     if(event.key === 'Escape') {
       document.body.removeChild(darkenBackground)
       document.removeEventListener('keydown', exitKey)
-    }
-  }
+    }}
+
   document.addEventListener('keydown', exitKey)
   
   const nameContent = modalCreateNameContent(data)

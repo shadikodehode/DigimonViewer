@@ -36,7 +36,6 @@ const fetchDigimonData = async (data) => {
   for (const digimonList of data.content) {
     if(skipDigimon.has(digimonList.name)) continue;
     if(skipPattern.some(pattern => digimonList.name.includes(pattern))) continue;
-    console.log('skipPattern', skipPattern)
     digimonArr.push({
       id: digimonList.id,
       name: digimonList.name,
@@ -58,6 +57,7 @@ export const fetchAllDigimon = async () => {
   const data = await response.json();
   allDigimonArr = data.content
   .filter(digimon => !skipDigimon.has(digimon.name))
+  .filter(digimon => !skipPattern.some(pattern => digimon.name.includes(pattern)))
   .map(digimon => ({
     id: digimon.id,
     name: digimon.name, 

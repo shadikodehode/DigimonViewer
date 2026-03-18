@@ -17,6 +17,7 @@
   justify-content: space-between;
   position: relative;
 }
+
 .card-appearance{
   background: #ffffff;
   height: 200px;
@@ -35,9 +36,11 @@
   
   transition: opacity .1s;
 }
+
 .card-appearance:hover{
   opacity: .80;
 }
+
 .card-appearance:active{
   transform: scale(99%);
 }
@@ -54,6 +57,7 @@
   mix-blend-mode: multiply;
   object-fit: cover;
 }
+
 .card-name{
   position: absolute;
 

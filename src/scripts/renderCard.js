@@ -10,8 +10,16 @@ const createCard = (digimonId, digimonName, digimonImage) => {
   cardElement.addEventListener('click', () => {
     if(cardElement.dataset.loading) return
     cardElement.dataset.loading = true
-    cardElement.classList.add('card-loading')
-    modal(digimonId)
+
+    const cursorTimeout = setTimeout(() => {
+      cardElement.classList.add('card-loading')
+    }, 100)
+
+    modal(digimonId).then(() => {
+      clearTimeout(cursorTimeout)
+      cardElement.classList.remove('card-loading')
+      delete cardElement.dataset.loading
+    })
   })
   
   cardContainer.appendChild(cardElement);

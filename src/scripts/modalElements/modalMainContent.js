@@ -78,6 +78,7 @@ export const modalCreateMainContent = (data, darkenBackground) => {
 
     modalBioButton.addEventListener('click', () => {
       event.stopPropagation()
+      modalRightContentContainer.classList.toggle('expanded')
       modalRightSubContainer.classList.toggle('expanded')
       modalBioTextContainer.classList.toggle('expanded')
       modalBioButton.classList.toggle('expanded')
@@ -86,6 +87,7 @@ export const modalCreateMainContent = (data, darkenBackground) => {
 
       document.addEventListener('click', (event) => {
         if(!modalBioTextContainer.contains(event.target)) {
+          modalRightContentContainer.classList.remove('expanded')
           modalRightSubContainer.classList.remove('expanded')
           modalBioTextContainer.classList.remove('expanded')
           modalBioButton.classList.remove('expanded')

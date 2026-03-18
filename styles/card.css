@@ -52,7 +52,7 @@
 
 .card-image{
   height: 110px;
-  max-width: 150px;
+  max-width: 1500px;
   padding: 60px 0px 20px 0%;
   mix-blend-mode: multiply;
   object-fit: cover;

@@ -23,6 +23,12 @@ export const createTags = (name, container) => {
         else if(tagText.includes('Black')) {
             tag.className = 'tag-container tag-black'
         }
+        else if(tagText.includes('Blue')) {
+            tag.className = 'tag-container tag-blue'
+        }
+        else if(tagText.includes('Red')) {
+            tag.className = 'tag-container tag-red'
+        }
         else {
             tag.className = 'tag-container tag-generic'
         }

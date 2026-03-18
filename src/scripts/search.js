@@ -22,8 +22,12 @@ export const searchDigimon = (event) => {
       .filter(digimon => digimon.name
       .toLowerCase()
       .startsWith(digimonSearchName
+      .toLowerCase())
+      ||
+      digimon.name
       .toLowerCase()
-  ))
+      .includes(`(${digimonSearchName.toLowerCase()})`)
+    )
 
     cardContainer.innerHTML = '';
     digimonSearchList.innerHTML = '';

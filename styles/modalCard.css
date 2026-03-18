@@ -8,6 +8,8 @@
 
   background: rgba(0, 0, 0, .7);
  
+  cursor: pointer;
+
   z-index: 10;
 }
 
@@ -30,6 +32,8 @@
   border-radius: 15px;
 
   background: #ffffff;
+  
+  cursor: default;
 
   padding: 50px 30px 25px 30px;
 }

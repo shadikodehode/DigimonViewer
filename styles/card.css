@@ -8,7 +8,7 @@
 }
 
 .card-loading {
-  cursor: wait;
+  cursor: progress;
   opacity: .7;
 }
 

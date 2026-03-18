@@ -92,6 +92,7 @@ export const modalCreateBottomContent = (data, darkenBackground, modalCard) => {
   const modalFieldHeader = document.createElement('div')
     modalFieldHeader.textContent = "FIELDS"
     modalFieldHeader.className = 'modal-field-header'
+    modalFieldHeader.title = "A Digimon's Field is an overall branching group of Digimon that each one belongs to"
 
   modalFieldContainer.appendChild(modalFieldHeader)
 
@@ -109,6 +110,7 @@ export const modalCreateBottomContent = (data, darkenBackground, modalCard) => {
     const modalField = document.createElement('img')
     modalField.src = image
     modalField.alt = field
+    modalField.title = field
     modalField.className = 'modal-field'
 
     modalFieldImgContainer.appendChild(modalField)

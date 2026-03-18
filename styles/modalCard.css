@@ -222,7 +222,8 @@ transform: translateX(-40px) rotate(180deg);
   gap: 13px;
 }
 
-.modal-level-badge-container {
+.modal-level-badge-container,
+.modal-attribute-badge-container {
   display: flex;
   flex-direction: row;
 
@@ -348,11 +349,12 @@ transform: translateX(-40px) rotate(180deg);
   font-size: 9px;
   font-weight: initial;
   font-style: italic;
+  cursor: default;
 }
 
 .modal-field-line {
   position: absolute;
-  height: .1px;
+  height: .5px;
   width: 70px;
   background: #a9b9d9;
   bottom: 0;
@@ -382,7 +384,7 @@ transform: translateX(-40px) rotate(180deg);
 
 .modal-level, .modal-attribute,
 .modal-next-evolution-button,
-.modal-previous-evolution-button, .modal-field,
+.modal-previous-evolution-button,
 .modal-bio-triangle, .modal-bio-button {
   cursor: pointer;
   transition: opacity .1s;
@@ -392,8 +394,8 @@ transform: translateX(-40px) rotate(180deg);
 .modal-level:hover, .modal-attribute:hover,
 .modal-next-evolution-button:hover,
 .modal-previous-evolution-button:hover,
-.modal-field:hover, .modal-type-container:hover,
-.modal-bio-triangle:hover, .modal-bio-button:hover {
+.modal-bio-triangle:hover, 
+.modal-bio-button:hover {
   opacity: .8;
 }
 
@@ -405,8 +407,7 @@ transform: translateX(-40px) rotate(180deg);
 }
 
 .modal-level:active,
-.modal-attribute:active,
-.modal-field:active {
+.modal-attribute:active {
   transform: translateX(.5px) translateY(.5px);
 }
 

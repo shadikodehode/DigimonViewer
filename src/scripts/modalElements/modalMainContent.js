@@ -1,4 +1,9 @@
-export const modalCreateMainContent = (data) => {
+import { renderCard } from "../renderCard.js"
+import { setIsFiltered, fetchDigimonFilter } from "../../data/digimonAPI.js"
+import { filterSkip } from "../skipDigimon.js"
+import { scrollToTop } from "../utils.js"
+
+export const modalCreateMainContent = (data, darkenBackground) => {
 
   //container for Image  
     const modalContentContainer = document.createElement('div')
@@ -119,6 +124,14 @@ export const modalCreateMainContent = (data) => {
 
     data.levels.forEach(({level}) => {
       const modalLevel = document.createElement('div')
+      modalLevel.addEventListener('click', async () => {
+        setIsFiltered(true)
+        const filterData = await fetchDigimonFilter(`digimon?level=${level}&pageSize=1488`)
+        const skip = filterSkip(filterData.content)
+        renderCard(skip)
+        scrollToTop()
+        document.body.removeChild(darkenBackground)
+      })
       modalLevel.textContent = level
       modalLevel.className = 'modal-level'
       
@@ -138,12 +151,29 @@ export const modalCreateMainContent = (data) => {
       modalAttributeHeader.className = 'modal-attribute-header'
     
     modalAttributeContainer.appendChild(modalAttributeHeader)  
-    
-    const modalAttribute = document.createElement('div')
-      modalAttribute.textContent = data.attributes[0]?.attribute
-      modalAttribute.className = 'modal-attribute'
 
-    modalAttributeContainer.appendChild(modalAttribute)
+    const modalAttributeBadgeContainer = document.createElement('div')
+      modalAttributeBadgeContainer.className = 'modal-attribute-badge-container'
+
+    modalAttributeContainer.appendChild(modalAttributeBadgeContainer)
+    
+    data.attributes.forEach(({attribute}) => {
+      const modalAttribute = document.createElement('div')
+      modalAttribute.addEventListener('click', async () => {
+        setIsFiltered(true)
+        const filterData = await fetchDigimonFilter(`digimon?attribute=${attribute}&pageSize=1488`)
+        const skip = filterSkip(filterData.content)
+        renderCard(skip)
+        scrollToTop()
+        document.body.removeChild(darkenBackground)
+      })
+        modalAttribute.textContent = attribute
+        modalAttribute.className = 'modal-attribute'
+      
+        modalAttributeBadgeContainer.appendChild(modalAttribute)
+    });
+
+
     
     return modalContentContainer
 }

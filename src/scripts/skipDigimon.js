@@ -4,6 +4,10 @@
 //that many of them I found it easier to do it manually, ideally the api would be better
 //suited for this
 
+export const filterSkip = (content) => {
+  return content?.filter(digimon => !skipDigimon.has(digimon.name)) ?? []
+}
+
 export const skipDigimon = new Set([
   "Death Airdramon", 
   "Death Devimon", 

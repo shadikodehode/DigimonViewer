@@ -1,6 +1,6 @@
-import { digimonArr, fetchDigimonFilter } from "../data/digimonAPI.js";
+import { digimonArr, fetchDigimonFilter, setIsFiltered } from "../data/digimonAPI.js";
 import { renderCard } from "./renderCard.js";
-import { setIsFiltered } from "../data/digimonAPI.js";
+import { filterSkip } from "./skipDigimon.js";
 
 const levelSelector = document.querySelector('.button-content-level');
 const levelData = await fetchDigimonFilter('level?page=0')
@@ -28,7 +28,8 @@ export const dropdownFilter = async () => {
       filterLevel.addEventListener('click', async () => {
         setIsFiltered(true)
         const data = await fetchDigimonFilter(`digimon?level=${level.name}&pageSize=1488`)
-        renderCard(data.content)
+        const skip = filterSkip(data.content)
+        renderCard(skip)
       })
       filterLevel.className = "button-content-link"
       filterLevel.textContent = level.name
@@ -40,7 +41,8 @@ export const dropdownFilter = async () => {
       filterAttribute.addEventListener('click', async () => {
         setIsFiltered(true)
         const data = await fetchDigimonFilter(`digimon?attribute=${attribute.name}&pageSize=1488`)
-        renderCard(data.content)
+        const skip = filterSkip(data.content)
+        renderCard(skip)
       })
       filterAttribute.className = "button-content-link"
       filterAttribute.textContent = attribute.name

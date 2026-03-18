@@ -45,7 +45,7 @@ export const modal = async (id, currentBackground = null, currentCard = null) =>
   const nameContent = modalCreateNameContent(data)
   modalCard.appendChild(nameContent)
 
-  const mainContent = modalCreateMainContent(data)
+  const mainContent = modalCreateMainContent(data, darkenBackground)
   modalCard.appendChild(mainContent)
   
   const modalBottomContentContainer = modalCreateBottomContent(data, darkenBackground, modalCard)

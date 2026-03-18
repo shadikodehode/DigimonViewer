@@ -58,7 +58,7 @@
 	gap: 10px;
 	margin-top: 30px;
 }
-.button-level, .button-attribute, .button-reset{
+.button-xantibody, .button-level, .button-attribute, .button-reset{
 	background: #0078a0;
 	color: #fff5a6;
 
@@ -87,12 +87,13 @@
 	background: #c3180c;
 }
 
-.button-level, .button-attribute {
+.button-level, .button-attribute, .button-xantibody {
 	width: 100px;
 }
 
 .button-level:hover, .button-attribute:hover, .button-reset:hover, 
-.button-content-level:hover, .button-content-attribute:hover{
+.button-content-level:hover, .button-content-attribute:hover, 
+.button-xantibody:hover{
 	background: #006384;
 	color: #f4e165;
 }
@@ -102,7 +103,8 @@
 	color: #ffe229;
 }
 
-.button-level:active, .button-attribute:active, .button-reset:active{
+.button-level:active, .button-attribute:active, 
+.button-reset:active, .button-xantibody:active{
 	transform: translate(.5px, .5px);
 }
 

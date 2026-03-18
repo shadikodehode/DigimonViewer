@@ -1,5 +1,6 @@
 import { digimonArr, fetchDigimonFilter } from "../data/digimonAPI.js";
 import { renderCard } from "./renderCard.js";
+import { setIsFiltered } from "../data/digimonAPI.js";
 
 const levelSelector = document.querySelector('.button-content-level');
 const levelData = await fetchDigimonFilter('level?page=0')
@@ -14,10 +15,10 @@ const allAttributes = [...attributeData.content.fields, ...attributeData2.conten
 
 const levelButtonSelector = document.querySelector('.button-level')
 const attributeButtonSelector = document.querySelector('.button-attribute')
+const xantibodyButton = document.querySelector('.button-xantibody')
 
 const resetButtonSelector = document.querySelector('.button-reset')
-const searchbarElement = document.querySelector('.searchbar');
-
+const searchbarElement = document.querySelector('.searchbar')
 
 export const dropdownFilter = async () => {
   //sorts the names by custom defined order from levelOrder
@@ -25,6 +26,7 @@ export const dropdownFilter = async () => {
     levelOrder.indexOf(a.name) - levelOrder.indexOf(b.name)).forEach(level => {
       const filterLevel = document.createElement('div');
       filterLevel.addEventListener('click', async () => {
+        setIsFiltered(true)
         const data = await fetchDigimonFilter(`digimon?level=${level.name}&pageSize=1488`)
         renderCard(data.content)
       })
@@ -36,6 +38,7 @@ export const dropdownFilter = async () => {
   allAttributes.forEach(attribute => {
       const filterAttribute = document.createElement('div');
       filterAttribute.addEventListener('click', async () => {
+        setIsFiltered(true)
         const data = await fetchDigimonFilter(`digimon?attribute=${attribute.name}&pageSize=1488`)
         renderCard(data.content)
       })
@@ -53,6 +56,11 @@ attributeButtonSelector.addEventListener('click', () => {
   attributeSelector.classList.toggle('active')
 })
 
+xantibodyButton.addEventListener('click', async () => {
+  setIsFiltered(true)
+  const data = await fetchDigimonFilter(`digimon?xAntibody=true&pageSize=171`)
+  renderCard(data.content)
+})
 
 document.addEventListener('click', (event) => {
   if(!levelSelector.closest('.button-container').contains(event.target)) {
@@ -64,6 +72,7 @@ document.addEventListener('click', (event) => {
 })
 
 resetButtonSelector.addEventListener('click', () => {
+  setIsFiltered(false)
   searchbarElement.value = '';
   renderCard(digimonArr)
 })

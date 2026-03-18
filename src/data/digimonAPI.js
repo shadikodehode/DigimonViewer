@@ -9,6 +9,10 @@ export let allDigimonArr = [];
 
 let isLoading = false;
 
+let isFiltered = false;
+
+export const setIsFiltered = (value) => {isFiltered = value}
+
 let currentPage = 0;
 
 let totalPages = 0;
@@ -61,7 +65,7 @@ export const fetchAllDigimon = async () => {
 }
 
 const LoadNextPage = async () => {  
-  if(isLoading || currentPage >= totalPages) return;
+  if(isLoading || currentPage >= totalPages || isFiltered) return;
   isLoading = true;
   currentPage++;
   const  response = await fetch(`${digimonApi}/digimon?pageSize=${pageSize}&page=${currentPage}`);

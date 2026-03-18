@@ -54,6 +54,8 @@
   flex-direction: column; 
 
   margin-left: 20px;
+
+  cursor: default;
 }
 
 .modal-id-type-container {
@@ -160,10 +162,20 @@
 
 .modal-bio-text-container.expanded {
   display: flex;
-  margin-left: 20px;
-  width: 200px;
-  font-size: 10px;
+  width: 250px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #a9b9d9;
   align-self: flex-start;
+
+  max-height: 200px;
+  overflow-y: auto;
+  
+  text-shadow: 1px 1px 2px rgba(69, 112, 148, 0.2);
+}
+
+.modal-bio-text {
+  padding-right: 15px;
 }
 
 .modal-filter-container.expanded {
@@ -172,7 +184,7 @@
 
 .modal-bio-button.expanded {
   align-self: flex-end;
-  transform: translateX(-12px);
+  transform: translateX(-16px);
 }
 
 .modal-bio-triangle.expanded {
@@ -185,7 +197,7 @@ transform: translateX(-40px) rotate(180deg);
 
 .modal-right-content-container {
   display: flex;
-
+  
   gap: 10px;
 }
 
@@ -193,11 +205,14 @@ transform: translateX(-40px) rotate(180deg);
   align-self: stretch;
   width: 2px;
   height: auto;
+  min-width: 2px;
 
   background: #b3d3f3;
   border-radius: 2px;
 
   margin-top: 2px;
+
+  flex-shrink: 0;
 }
 
 .modal-filter-container {
@@ -337,7 +352,7 @@ transform: translateX(-40px) rotate(180deg);
 
 .modal-field-line {
   position: absolute;
-  height: 1px;
+  height: .1px;
   width: 70px;
   background: #a9b9d9;
   bottom: 0;
@@ -367,8 +382,7 @@ transform: translateX(-40px) rotate(180deg);
 
 .modal-level, .modal-attribute,
 .modal-next-evolution-button,
-.modal-previous-evolution-button,
-.modal-field, .modal-type-container,
+.modal-previous-evolution-button, .modal-field,
 .modal-bio-triangle, .modal-bio-button {
   cursor: pointer;
   transition: opacity .1s;
@@ -383,9 +397,16 @@ transform: translateX(-40px) rotate(180deg);
   opacity: .8;
 }
 
-.modal-level:active, .modal-attribute:active,
-.modal-field:active, .modal-type-container:active,
-.modal-bio-triangle:active {
+.modal-bio-button:active {
+  transform: translateX(-3px);
+}
+.modal-bio-button.expanded:active {
+  transform: translateX(-13px);
+}
+
+.modal-level:active,
+.modal-attribute:active,
+.modal-field:active {
   transform: translateX(.5px) translateY(.5px);
 }
 

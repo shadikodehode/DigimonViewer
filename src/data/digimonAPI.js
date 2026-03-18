@@ -84,5 +84,10 @@ const LoadNextPage = async () => {
   }}
 )
 
+export const fillPage = async () => {
+    while(document.body.scrollHeight <= window.innerHeight) {
+        await LoadNextPage()
+    }
+}
 
 

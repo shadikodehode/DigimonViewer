@@ -1,5 +1,5 @@
 import { renderCard } from "../scripts/renderCard.js";
-import { skipDigimon } from "../scripts/skipDigimon.js";
+import { skipDigimon, skipPattern } from "../scripts/skipDigimon.js";
 
 const digimonApi = 'https://digi-api.com/api/v1';
 
@@ -35,6 +35,8 @@ export const fetchDigimonFilter = async (filter)=> {
 const fetchDigimonData = async (data) => {
   for (const digimonList of data.content) {
     if(skipDigimon.has(digimonList.name)) continue;
+    if(skipPattern.some(pattern => digimonList.name.includes(pattern))) continue;
+    console.log('skipPattern', skipPattern)
     digimonArr.push({
       id: digimonList.id,
       name: digimonList.name,

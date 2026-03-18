@@ -75,20 +75,36 @@
   font-size: 14px;
 }
 
-.modal-type-container {
+.tag-container {
   display: flex;
   align-items: center;
-
-  background: #70b1f6;
   height: 13px;
   border-radius: 1px;
+  gap: 5px;
+  color: #ffffff;
+  font-size: 9px;
+  text-align: center;
+  padding: 0px 3px 0px 3px;
 }
 
-.modal-type {
-  color: #ffffff;
-  font-size: 10px;
-  text-align: center;
-  padding: 3px;
+.tag-type {
+  background: #70b1f6;
+}
+
+.tag-xantibody {
+  background: #e07bae;
+}
+
+.tag-virus {
+  background: #a7da63;
+}
+
+.tag-black {
+  background: #6e7783;
+}
+
+.tag-generic {
+  background: #a9b9d9;
 }
 
 .modal-name-container {

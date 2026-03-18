@@ -1,3 +1,5 @@
+import { createTags } from "../utils.js"
+
 export const modalCreateNameContent = (data) => {
 
    //Container for name, id and type
@@ -25,13 +27,12 @@ export const modalCreateNameContent = (data) => {
     
     //Type
     const modalTypeContainer = document.createElement('div')
-      modalTypeContainer.className = 'modal-type-container'
+      modalTypeContainer.className = 'tag-container tag-type'
 
     modalIdTypeContainer.appendChild(modalTypeContainer)
 
     const modalType = document.createElement('div')
       modalType.textContent =  data.types[0]?.type 
-      modalType.className = 'modal-type' 
       modalType.title = "Type"
 
     modalTypeContainer.appendChild(modalType)
@@ -43,10 +44,12 @@ export const modalCreateNameContent = (data) => {
     modalHeaderContainer.appendChild(modalNameContainer)
 
     const modalName = document.createElement('div')
-      modalName.textContent = data.name
       modalName.className = 'modal-name'
 
     modalNameContainer.appendChild(modalName)
+
+    const cleanName = createTags(data.name, modalIdTypeContainer)
+    modalName.textContent = cleanName
 
     return modalHeaderContainer
 }

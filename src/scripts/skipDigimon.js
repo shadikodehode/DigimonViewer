@@ -8,6 +8,8 @@ export const filterSkip = (content) => {
   return content?.filter(digimon => !skipDigimon.has(digimon.name)) ?? []
 }
 
+export const skipPattern = ['(2006 Anime Version)']
+
 export const skipDigimon = new Set([
   "Death Airdramon", 
   "Death Devimon", 

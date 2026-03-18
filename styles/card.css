@@ -6,6 +6,12 @@
   gap: 30px;
   margin: 40px 250px;
 }
+
+.card-loading {
+  cursor: wait;
+  opacity: .7;
+}
+
 .card{
   display: flex;
   justify-content: space-between;

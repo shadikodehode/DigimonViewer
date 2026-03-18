@@ -8,8 +8,9 @@ const createCard = (digimonId, digimonName, digimonImage) => {
   cardElement.className = "card";
 
   cardElement.addEventListener('click', () => {
-    console.log(digimonId)
-    console.log(digimonName)
+    if(cardElement.dataset.loading) return
+    cardElement.dataset.loading = true
+    cardElement.classList.add('card-loading')
     modal(digimonId)
   })
   

@@ -21,14 +21,25 @@ export const modal = async (id, currentBackground = null, currentCard = null) =>
       modalCard.innerHTML = ''
     }
 
-   darkenBackground.addEventListener('click', (event) => {
+  darkenBackground.addEventListener('click', (event) => {
     if(!modalCard.contains(event.target)) {
-      document.body.removeChild(darkenBackground)}
-    })
+      try {
+        document.body.removeChild(darkenBackground)
+      }
+      catch(error) {
+        console.error('Already removed the background, ignore this')
+      }
+    }
+  })
   
   const exitButton = document.createElement('div')
     exitButton.addEventListener('click', () => {
-      document.body.removeChild(darkenBackground)
+      try {
+        document.body.removeChild(darkenBackground)
+      }
+      catch(error) {
+        console.error('Already removed the background, ignore this')
+      }
     })
 
     exitButton.textContent = 'X'
@@ -38,7 +49,12 @@ export const modal = async (id, currentBackground = null, currentCard = null) =>
   
   const exitKey = (event) => {
     if(event.key === 'Escape') {
-      document.body.removeChild(darkenBackground)
+      try {
+        document.body.removeChild(darkenBackground)
+      }
+      catch(error) {
+        console.error('Already removed the background, ignore this')
+      }
       document.removeEventListener('keydown', exitKey)
     }}
 

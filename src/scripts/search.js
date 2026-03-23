@@ -4,7 +4,6 @@ import { renderCard } from "./renderCard.js";
 let debounce;
 
 const searchbarElement = document.querySelector('.searchbar');
-const cardContainer = document.querySelector('.card-container');
 const digimonSearchList = document.querySelector('#digimon-names')
 
 export const searchDigimon = (event) => {
@@ -29,7 +28,6 @@ export const searchDigimon = (event) => {
       .includes(`(${digimonSearchName.toLowerCase()})`)
     )
 
-    cardContainer.innerHTML = '';
     digimonSearchList.innerHTML = '';
 
     renderCard(filteredDigimon)
@@ -45,11 +43,3 @@ export const searchDigimon = (event) => {
 }
 
 searchbarElement.addEventListener('input', searchDigimon)
-
-export const searchDigimonAutocomplete = () =>  {
-  allDigimonArr.forEach(digimon => {
-    const searchAutocomplete = document.createElement('option');
-    searchAutocomplete.value = digimon.name;
-    digimonSearchList.appendChild(searchAutocomplete);
-  })
-}
